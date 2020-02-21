@@ -388,7 +388,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 405px;
 }
 
 .part-3 h1,
@@ -439,44 +438,23 @@ body {
   padding: 10px 40px;
 }
 
-.part-3 .goodbox-2,
-.part-5 .goodbox-2,
-.part-6 .goodbox-2 {
-  margin-bottom: 40px;
-}
-
-.part-3 .goodbox-3,
-.part-5 .goodbox-3,
-.part-6 .goodbox-3 {
-  margin-bottom: 30px;
-}
-
-.part-3 .goodbox-1,
-.part-3 .goodbox-2,
-.part-3 .goodbox-3,
-.part-5 .goodbox-1,
-.part-5 .goodbox-2,
-.part-5 .goodbox-3,
-.part-6 .goodbox-1,
-.part-6 .goodbox-2,
-.part-6 .goodbox-3 {
+.part-3 .good-box,
+.part-5 .good-box,
+.part-6 .good-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 1110px;
 }
 
-.part-3 .goodbox-1 .goods,
-.part-3 .goodbox-2 .goods,
-.part-3 .goodbox-3 .goods,
-.part-5 .goodbox-1 .goods,
-.part-5 .goodbox-2 .goods,
-.part-5 .goodbox-3 .goods,
-.part-6 .goodbox-1 .goods,
-.part-6 .goodbox-2 .goods,
-.part-6 .goodbox-3 .goods {
+.part-3 .good-box .goods,
+.part-5 .good-box .goods,
+.part-6 .good-box .goods {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,15 +470,9 @@ body {
   border: 2px solid transparent;
 }
 
-.part-3 .goodbox-1 .goods .cart,
-.part-3 .goodbox-2 .goods .cart,
-.part-3 .goodbox-3 .goods .cart,
-.part-5 .goodbox-1 .goods .cart,
-.part-5 .goodbox-2 .goods .cart,
-.part-5 .goodbox-3 .goods .cart,
-.part-6 .goodbox-1 .goods .cart,
-.part-6 .goodbox-2 .goods .cart,
-.part-6 .goodbox-3 .goods .cart {
+.part-3 .good-box .goods .cart,
+.part-5 .good-box .goods .cart,
+.part-6 .good-box .goods .cart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -516,15 +488,9 @@ body {
   border: none;
 }
 
-.part-3 .goodbox-1 .goods .cart a,
-.part-3 .goodbox-2 .goods .cart a,
-.part-3 .goodbox-3 .goods .cart a,
-.part-5 .goodbox-1 .goods .cart a,
-.part-5 .goodbox-2 .goods .cart a,
-.part-5 .goodbox-3 .goods .cart a,
-.part-6 .goodbox-1 .goods .cart a,
-.part-6 .goodbox-2 .goods .cart a,
-.part-6 .goodbox-3 .goods .cart a {
+.part-3 .good-box .goods .cart a,
+.part-5 .good-box .goods .cart a,
+.part-6 .good-box .goods .cart a {
   color: white;
   text-transform: uppercase;
   font-size: 13px;
@@ -533,42 +499,9 @@ body {
   border: none;
 }
 
-.part-3 .goodbox-1 .goods:hover,
-.part-3 .goodbox-2 .goods:hover,
-.part-3 .goodbox-3 .goods:hover,
-.part-5 .goodbox-1 .goods:hover,
-.part-5 .goodbox-2 .goods:hover,
-.part-5 .goodbox-3 .goods:hover,
-.part-6 .goodbox-1 .goods:hover,
-.part-6 .goodbox-2 .goods:hover,
-.part-6 .goodbox-3 .goods:hover {
-  cursor: pointer;
-  border: 2px solid #ebebeb;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
-}
-
-.part-3 .goodbox-1 .goods:hover .cart,
-.part-3 .goodbox-2 .goods:hover .cart,
-.part-3 .goodbox-3 .goods:hover .cart,
-.part-5 .goodbox-1 .goods:hover .cart,
-.part-5 .goodbox-2 .goods:hover .cart,
-.part-5 .goodbox-3 .goods:hover .cart,
-.part-6 .goodbox-1 .goods:hover .cart,
-.part-6 .goodbox-2 .goods:hover .cart,
-.part-6 .goodbox-3 .goods:hover .cart {
-  visibility: visible;
-}
-
-.part-3 .goodbox-1 .tool-box,
-.part-3 .goodbox-2 .tool-box,
-.part-3 .goodbox-3 .tool-box,
-.part-5 .goodbox-1 .tool-box,
-.part-5 .goodbox-2 .tool-box,
-.part-5 .goodbox-3 .tool-box,
-.part-6 .goodbox-1 .tool-box,
-.part-6 .goodbox-2 .tool-box,
-.part-6 .goodbox-3 .tool-box {
+.part-3 .good-box .tool-box,
+.part-5 .good-box .tool-box,
+.part-6 .good-box .tool-box {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
@@ -576,150 +509,18 @@ body {
   width: 235px;
 }
 
-.part-3 .goodbox-1 .pict-1,
-.part-3 .goodbox-2 .pict-1,
-.part-3 .goodbox-3 .pict-1,
-.part-5 .goodbox-1 .pict-1,
-.part-5 .goodbox-2 .pict-1,
-.part-5 .goodbox-3 .pict-1,
-.part-6 .goodbox-1 .pict-1,
-.part-6 .goodbox-2 .pict-1,
-.part-6 .goodbox-3 .pict-1 {
-  background-image: url("../img/product_1.png");
-}
-
-.part-3 .goodbox-1 .pict-2,
-.part-3 .goodbox-2 .pict-2,
-.part-3 .goodbox-3 .pict-2,
-.part-5 .goodbox-1 .pict-2,
-.part-5 .goodbox-2 .pict-2,
-.part-5 .goodbox-3 .pict-2,
-.part-6 .goodbox-1 .pict-2,
-.part-6 .goodbox-2 .pict-2,
-.part-6 .goodbox-3 .pict-2 {
-  background-image: url("../img/product_2.png");
-}
-
-.part-3 .goodbox-1 .pict-3,
-.part-3 .goodbox-2 .pict-3,
-.part-3 .goodbox-3 .pict-3,
-.part-5 .goodbox-1 .pict-3,
-.part-5 .goodbox-2 .pict-3,
-.part-5 .goodbox-3 .pict-3,
-.part-6 .goodbox-1 .pict-3,
-.part-6 .goodbox-2 .pict-3,
-.part-6 .goodbox-3 .pict-3 {
-  background-image: url("../img/product_3.png");
-}
-
-.part-3 .goodbox-1 .pict-4,
-.part-3 .goodbox-2 .pict-4,
-.part-3 .goodbox-3 .pict-4,
-.part-5 .goodbox-1 .pict-4,
-.part-5 .goodbox-2 .pict-4,
-.part-5 .goodbox-3 .pict-4,
-.part-6 .goodbox-1 .pict-4,
-.part-6 .goodbox-2 .pict-4,
-.part-6 .goodbox-3 .pict-4 {
-  background-image: url("../img/product_4.png");
-}
-
-.part-3 .goodbox-1 .pict-5,
-.part-3 .goodbox-2 .pict-5,
-.part-3 .goodbox-3 .pict-5,
-.part-5 .goodbox-1 .pict-5,
-.part-5 .goodbox-2 .pict-5,
-.part-5 .goodbox-3 .pict-5,
-.part-6 .goodbox-1 .pict-5,
-.part-6 .goodbox-2 .pict-5,
-.part-6 .goodbox-3 .pict-5 {
-  background-image: url("../img/product_5.png");
-}
-
-.part-3 .goodbox-1 .pict-6,
-.part-3 .goodbox-2 .pict-6,
-.part-3 .goodbox-3 .pict-6,
-.part-5 .goodbox-1 .pict-6,
-.part-5 .goodbox-2 .pict-6,
-.part-5 .goodbox-3 .pict-6,
-.part-6 .goodbox-1 .pict-6,
-.part-6 .goodbox-2 .pict-6,
-.part-6 .goodbox-3 .pict-6 {
-  background-image: url("../img/product_6.png");
-}
-
-.part-3 .goodbox-1 .pict-7,
-.part-3 .goodbox-2 .pict-7,
-.part-3 .goodbox-3 .pict-7,
-.part-5 .goodbox-1 .pict-7,
-.part-5 .goodbox-2 .pict-7,
-.part-5 .goodbox-3 .pict-7,
-.part-6 .goodbox-1 .pict-7,
-.part-6 .goodbox-2 .pict-7,
-.part-6 .goodbox-3 .pict-7 {
-  background-image: url("../img/product_7.png");
-}
-
-.part-3 .goodbox-1 .pict-8,
-.part-3 .goodbox-2 .pict-8,
-.part-3 .goodbox-3 .pict-8,
-.part-5 .goodbox-1 .pict-8,
-.part-5 .goodbox-2 .pict-8,
-.part-5 .goodbox-3 .pict-8,
-.part-6 .goodbox-1 .pict-8,
-.part-6 .goodbox-2 .pict-8,
-.part-6 .goodbox-3 .pict-8 {
-  background-image: url("../img/product_8.png");
-}
-
-.part-3 .goodbox-1 .pict-9,
-.part-3 .goodbox-2 .pict-9,
-.part-3 .goodbox-3 .pict-9,
-.part-5 .goodbox-1 .pict-9,
-.part-5 .goodbox-2 .pict-9,
-.part-5 .goodbox-3 .pict-9,
-.part-6 .goodbox-1 .pict-9,
-.part-6 .goodbox-2 .pict-9,
-.part-6 .goodbox-3 .pict-9 {
-  background-image: url("../img/product_9.png");
-}
-
-.part-3 .goodbox-1 .pict-10,
-.part-3 .goodbox-2 .pict-10,
-.part-3 .goodbox-3 .pict-10,
-.part-5 .goodbox-1 .pict-10,
-.part-5 .goodbox-2 .pict-10,
-.part-5 .goodbox-3 .pict-10,
-.part-6 .goodbox-1 .pict-10,
-.part-6 .goodbox-2 .pict-10,
-.part-6 .goodbox-3 .pict-10 {
-  background-image: url("../img/product_10.png");
-}
-
-.part-3 .goodbox-1 .description p,
-.part-3 .goodbox-2 .description p,
-.part-3 .goodbox-3 .description p,
-.part-5 .goodbox-1 .description p,
-.part-5 .goodbox-2 .description p,
-.part-5 .goodbox-3 .description p,
-.part-6 .goodbox-1 .description p,
-.part-6 .goodbox-2 .description p,
-.part-6 .goodbox-3 .description p {
+.part-3 .good-box .description p,
+.part-5 .good-box .description p,
+.part-6 .good-box .description p {
   color: black;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-.part-3 .goodbox-1 .description .values,
-.part-3 .goodbox-2 .description .values,
-.part-3 .goodbox-3 .description .values,
-.part-5 .goodbox-1 .description .values,
-.part-5 .goodbox-2 .description .values,
-.part-5 .goodbox-3 .description .values,
-.part-6 .goodbox-1 .description .values,
-.part-6 .goodbox-2 .description .values,
-.part-6 .goodbox-3 .description .values {
+.part-3 .good-box .description .values,
+.part-5 .good-box .description .values,
+.part-6 .good-box .description .values {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -730,33 +531,45 @@ body {
   font-weight: 500;
 }
 
-.part-3 .goodbox-1 .description .values h4,
-.part-3 .goodbox-2 .description .values h4,
-.part-3 .goodbox-3 .description .values h4,
-.part-5 .goodbox-1 .description .values h4,
-.part-5 .goodbox-2 .description .values h4,
-.part-5 .goodbox-3 .description .values h4,
-.part-6 .goodbox-1 .description .values h4,
-.part-6 .goodbox-2 .description .values h4,
-.part-6 .goodbox-3 .description .values h4 {
+.part-3 .good-box .description .values h4,
+.part-5 .good-box .description .values h4,
+.part-6 .good-box .description .values h4 {
   color: #e7484c;
   font-weight: 600;
   margin: 0px;
   padding-right: 8px;
 }
 
-.part-3 .goodbox-1 .description .values span,
-.part-3 .goodbox-2 .description .values span,
-.part-3 .goodbox-3 .description .values span,
-.part-5 .goodbox-1 .description .values span,
-.part-5 .goodbox-2 .description .values span,
-.part-5 .goodbox-3 .description .values span,
-.part-6 .goodbox-1 .description .values span,
-.part-6 .goodbox-2 .description .values span,
-.part-6 .goodbox-3 .description .values span {
+.part-3 .good-box .description .values span,
+.part-5 .good-box .description .values span,
+.part-6 .good-box .description .values span {
   color: #b5aec3;
   font-size: 12px;
   margin-top: 4px;
+}
+
+.part-3 .good-box .goods:hover,
+.part-5 .good-box .goods:hover,
+.part-6 .good-box .goods:hover {
+  cursor: pointer;
+  border: 2px solid #ebebeb;
+  -webkit-box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
+          box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
+}
+
+.part-3 .good-box .goods:hover .cart,
+.part-5 .good-box .goods:hover .cart,
+.part-6 .good-box .goods:hover .cart {
+  visibility: visible;
+}
+
+.part-3 .good-box::after,
+.part-5 .good-box::after,
+.part-6 .good-box::after {
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 47.7%;
+          flex: 0 1 47.7%;
 }
 
 .part-3 .line {

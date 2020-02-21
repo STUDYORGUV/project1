@@ -30,6 +30,34 @@ let products = [
     }
 ];
 
+//PRODUKTY.HTML
+$(document).ready(function() {
+    $.get('eshop.json', function(response) {
+        $('#good').empty();
+        for (let prod of response) {
+            console.log(prod);
+            let newProd = `
+            <div  class="goods">
+                <div class="tool-box">
+                    <img src="${prod.image}" alt="product_1">
+                    <a href=""></a>
+                </div>
+                    <div class="description">
+                        <p>${prod.name}</p>
+                        <div class="values">
+                            <h4>${prod.specialPrice}</h4>
+                            <span><del>${prod.price}</del></span>
+                        </div>
+                    </div>
+                <div class="cart">
+                    <a class="add-cart">do košíka</a> 
+                </div>
+            </div>`;   
+            $('#good').append(newProd);
+        }
+    });
+});
+
 
 for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na stranke
     carts[i].addEventListener('click', () => {      //prida udalost - "click"
@@ -39,7 +67,7 @@ for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na 
     })
 }
 
-function onLoadCartNumbers() { //funkcia priadania cisla pri kosiku - nacitanie s localstorage aby tam ostalo take cislo aj po zatvoreni stranky
+function onLoadCartNumbers() { //funkcia pridania cisla pri kosiku - nacitanie s localstorage aby tam ostalo take cislo aj po zatvoreni stranky
     let productNumbers = localStorage.getItem('cartNumbers');
     
     if(productNumbers) {
@@ -163,19 +191,19 @@ displayCart()
 $(document).ready(function() {
     $.get('http://127.0.0.1:5500/eshop.json', function(response) {
         $('#good').empty();
-        for (let product of response) {
-            console.log(product);
+        for (let prod of response) {
+            console.log(prod);
             let newProduct = `
             <div  class="goods">
                 <div class="tool-box">
-                <img src="${product.image}" alt="product_1">
+                <img src="${prod.image}" alt="product_1">
                     <a href=""></a>
                 </div>
                     <div class="description">
-                        <p>${product.name}</p>
+                        <p>${prod.name}</p>
                         <div class="values">
-                            <h4>${product.specialPrice}</h4>
-                            <span><del>${product.price}</del></span>
+                            <h4>${prod.specialPrice}</h4>
+                            <span><del>${prod.price}</del></span>
                         </div>
                     </div>
                 <div class="cart">

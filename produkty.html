@@ -12,83 +12,9 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="css/eshop.css"> 
-
-    <style>
-     
-    .goodbox {        
-        display: flex;
-        justify-content: space-between;
-        width:1110px;
-       .goods {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            height: 377px;
-            border:2px solid transparent;
-            .cart {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                visibility: hidden;
-                background-color: rgb(231, 72, 76);
-                height: 40px;
-                border:none;
-                & a {
-                    color: white;
-                    text-transform: uppercase;
-                    font-size: 13px;
-                    font-weight: 600;
-                    text-decoration: none;
-                    border:none;
-                }
-
-            }
-        }
-
-        .goods:hover {
-            cursor: pointer;
-            border: 2px solid rgb(235, 235, 235);
-            box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
-            .cart {
-                visibility: visible;
-            }
-        }
-        .tool-box {
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 235px;
-            width: 235px;
-        }                 
-        .description {
-            p {
-                color: black;
-                font-size: 14px;
-                font-weight: 500;
-                margin-bottom: 10px;
-            }
-            .values {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 25px;
-                font-weight: 500;
-                h4 {
-                    color: rgb(231, 72, 76);
-                    font-weight: 600;
-                    margin: 0px;
-                    padding-right: 8px;
-                }
-                span {
-                    color: rgb(181, 174, 195);
-                    font-size: 12px;
-                    margin-top: 4px;
-                }
-            }
-        } 
-    }
-    </style>
-
+<style>
+    
+</style>
 </head>
 
 <body>
@@ -130,9 +56,8 @@
                 </nav>
                 <nav>
                     <ul id="navbar-3">
-                        <li><a href=""><i class="fas fa-search"></i></a></li>
-                        <li><a href=""><i class="fas fa-user"></i></a></li>
-                        <li><a href="kosik.html"><i class="fas fa-shopping-cart"></i></a></li>
+                        
+                               <li><a href="kosik.html"><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -165,42 +90,32 @@
 
     </section>
 
-    <section>
-        <div class="footer-1">
-            <div class="wrap-3">
-                <h2>Novinky</h2>
-                <h3>Subscribe to our newsletter and get 20% off your first purchase (TEXT ZMENIT!</h3>
-            </div>
+    <section class = >
+        
+            <div class="footer-1">
+                <div class="wrap-3">
+                    <h2>Novinky</h2>
+                    <h3>Subscribe to our newsletter and get 20% off your first purchase (TEXT ZMENIT!</h3>
+                </div>
 
-            <div class="payment">
-                <input type="text"placeholder='Hľadám tento tovar . . .'>
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <div class="payment">
+                    <input type="text"placeholder='Hľadám tovar . . .'>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
             </div>
         </div>
+       
     </section>
 
-                   <!--PRODUKT-->
+                   <!--VYKRESLI PRODUKTY-->
     <section> 
-        <div id="good" class="goodbox">
-            <!--<div  class="goods">
-               
-               <div class="tool-box pict-1">
-                    <a href=""></a>
-                </div>
-               
-                <div class="description">
-                    <p>Pánska športová mikina</p>
-                    <div class="values"><h4>€45.00</h4><span><del>€50.00</del></span></div>
-                </div>
-
-                <div class="cart">
-                    <a class="add-cart">do košíka</a> pridal som "add-cart" -pouzitie triedy v.js(vybratie vsetkych elementov pre ktory tento selektor plati)- na kazdy produkt na stranke domov
-                </div>
-            </div> 
-        </div> -->
+        
+        <div class="part-3">
+            <div id="good" class="good-box"></div>
+            
     </section>
-
-   <!--</section>
+<!--VYKRESLI PRODUKTY-->
+   </section>
     <footer>
         <section class="footer-1">
 
@@ -210,7 +125,7 @@
             </div>
 
             <div class="payment">
-                <input type="text"placeholder='Môj e-mail . . . '>
+                <input type="text"placeholder='Váš email . . . '>
                 <button type="submit"><i class="fas fa-check"></i></button>
             </div>
 
@@ -246,9 +161,9 @@
 
         </section>
 
-    </footer>-->
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="obchod.js"></script>
+    <script src="eshop.js"></script>
 </body>
 
 </html>
