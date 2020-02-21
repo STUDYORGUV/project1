@@ -12,6 +12,83 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="css/eshop.css"> 
+
+    <style>
+     
+    .goodbox {        
+        display: flex;
+        justify-content: space-between;
+        width:1110px;
+       .goods {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            height: 377px;
+            border:2px solid transparent;
+            .cart {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                visibility: hidden;
+                background-color: rgb(231, 72, 76);
+                height: 40px;
+                border:none;
+                & a {
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    border:none;
+                }
+
+            }
+        }
+
+        .goods:hover {
+            cursor: pointer;
+            border: 2px solid rgb(235, 235, 235);
+            box-shadow: 0 4px 20px 0 rgba(218, 217, 217, 0.9), 0 6px 20px 0 rgba(218, 216, 216, 0.4);
+            .cart {
+                visibility: visible;
+            }
+        }
+        .tool-box {
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 235px;
+            width: 235px;
+        }                 
+        .description {
+            p {
+                color: black;
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            .values {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 25px;
+                font-weight: 500;
+                h4 {
+                    color: rgb(231, 72, 76);
+                    font-weight: 600;
+                    margin: 0px;
+                    padding-right: 8px;
+                }
+                span {
+                    color: rgb(181, 174, 195);
+                    font-size: 12px;
+                    margin-top: 4px;
+                }
+            }
+        } 
+    }
+    </style>
+
 </head>
 
 <body>
@@ -62,7 +139,7 @@
         </section>
     </header>
 
-    <!--<section>
+    <section>
 
         <div class="part-2">
 
@@ -86,9 +163,9 @@
 
         </div>
 
-    </section>-->
+    </section>
 
-    <!--<section>
+    <section>
         <div class="footer-1">
             <div class="wrap-3">
                 <h2>Novinky</h2>
@@ -100,11 +177,11 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
         </div>
-    </section>-->
+    </section>
 
                    <!--PRODUKT-->
     <section> 
-        <div id="good" class="goodbox-1">
+        <div id="good" class="goodbox">
             <!--<div  class="goods">
                
                <div class="tool-box pict-1">

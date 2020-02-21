@@ -311,15 +311,8 @@ body {
             }
         }
     }
-    .goodbox-2 {
-        margin-bottom: 40px;
-    }
-    .goodbox-3 {
-        margin-bottom: 30px;
-    }
-    .goodbox-1,
-    .goodbox-2,
-    .goodbox-3 {
+    
+    .goodbox {        
         display: flex;
         justify-content: space-between;
         .goods {
@@ -362,45 +355,7 @@ body {
             background-size: cover;
             height: 235px;
             width: 235px;
-        }
-        .pict-1 {
-            background-image: url("../img/product_1.png");
-        }
-        .pict-2 {
-            background-image: url("../img/product_2.png");
-            //border-left: 1px solid rgb(235, 235, 235);
-            //border-right: 1px solid rgb(235, 235, 235);
-        }
-        .pict-3 {
-            background-image: url("../img/product_3.png");
-        }
-        .pict-4 {
-            background-image: url("../img/product_4.png");
-            //border-left: 1px solid rgb(235, 235, 235);
-            //border-right: 1px solid rgb(235, 235, 235);
-        }
-        .pict-5 {
-            background-image: url("../img/product_5.png");
-        }
-        .pict-6 {
-            background-image: url("../img/product_6.png");
-        }
-        .pict-7 {
-            background-image: url("../img/product_7.png");
-            //border-left: 1px solid rgb(235, 235, 235);
-            //border-right: 1px solid rgb(235, 235, 235);
-        }
-        .pict-8 {
-            background-image: url("../img/product_8.png");
-        }
-        .pict-9 {
-            background-image: url("../img/product_9.png");
-            //border-left: 1px solid rgb(235, 235, 235);
-            //border-right: 1px solid rgb(235, 235, 235);
-        }
-        .pict-10 {
-            background-image: url("../img/product_10.png");
-        }
+        }                 
         .description {
             p {
                 color: black;
@@ -426,10 +381,7 @@ body {
                 }
             }
         }
-        //.wall {
-            //border-left: 1px solid rgb(235, 235, 235);
-            //border-right: 1px solid rgb(235, 235, 235);
-        //}
+        
         
     }
 }
