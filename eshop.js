@@ -124,7 +124,7 @@ function displayCart() {
     if(cartItems && productContainer ) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
-            productContainer.innerHTML += `
+            productContainer.innerHTML += `    
             <div class="product">
                 <i class="far fa-trash-alt"></i>
                 <span>${item.name}</span>
