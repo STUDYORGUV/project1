@@ -48,7 +48,7 @@
                 <nav>
                     <ul id="navbar-2">
                         <li><a href="index.html">domov</a></li>
-                        <li><a href="produkty.html">obchod</a></li>
+                        <li><a href="">obchod</a></li>
                         <!-- <li><a href="">Promotion</a></li>
                         <li><a href="">Pages</a></li> -->
                         <li><a href="">Blog</a></li>
@@ -58,9 +58,9 @@
                 </nav>
                 <nav>
                     <ul id="navbar-3">
-                       <!-- <li><a href=""><i class="fas fa-search"></i></a></li>
-                        <li><a href=""><i class="fas fa-user"></i></a></li>-->
-                        <li><a href="kosik.html"><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
+                        <li><a href=""><i class="fas fa-search"></i></a></li>
+                        <li><a href=""><i class="fas fa-user"></i></a></li>
+                        <li><a href=""><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -75,19 +75,17 @@
                 Sorry, your browser does not support inline SVG.
             </svg>
         </section> -->
-
-        <div class="products-container">
-            <div class="product-header">
-                <!-- <h1>Nákupný košík</h1> -->
-                <h5 class="product-title">PRODUKT</h5>
-                <h5 class="price">CENA</h5>
-                <h5 class="quantity">MNOŽSTVO</h5>
-                <h5 class="total">CELKOVÁ CENA</h5>
-            </div>
-            <div class="products">
-
-            </div>
-        </div>
+        
+        <table class="products-container">
+            <thead class="product-header">
+                <th class="product-title">PRODUKT</th>
+                <th class="price">CENA PRODUKT</th>
+                <th class="quantity">MNOŽSTVO</th>
+                <th class="total"> CENA</th>
+            </thead>
+            <tbody class="products"></tbody>
+        </table>
+                
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="eshop.js"></script>
 
@@ -95,3 +93,13 @@
 </body>
 
 </html>
+
+<!-- <div class="products-container">
+    <div class="product-header">
+        <h5 class="product-title">PRODUKT</h5>
+        <h5 class="price">CENA</h5>
+        <h5 class="quantity">MNOŽSTVO</h5>
+        <h5 class="total">CELKOVÁ CENA</h5>
+    </div>
+    <div class="products"></div>
+</div> -->
