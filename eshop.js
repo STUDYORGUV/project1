@@ -2,8 +2,6 @@
 
 let carts = document.querySelectorAll('.add-cart'); //pomocou tejto metody som zobral vsetky elementy kde sa trieda .add-cart nachádza a je zadefinovana v premennej "carts"
 
-
-
 let products = [
     {
         id: 1,
@@ -32,6 +30,34 @@ let products = [
     }
 ];
 
+//PRODUKTY.HTML
+$(document).ready(function() {
+    $.get('eshop.json', function(response) {
+        $('#good').empty();
+        for (let prod of response) {
+            console.log(prod);
+            let newProd = `
+            <div  class="goods">
+                <div class="tool-box">
+                    <img src="${prod.image}" alt="product_1">
+                    <a href=""></a>
+                </div>
+                    <div class="description">
+                        <p>${prod.name}</p>
+                        <div class="values">
+                            <h4>${prod.specialPrice}</h4>
+                            <span><del>${prod.price}</del></span>
+                        </div>
+                    </div>
+                <div class="cart">
+                    <a class="add-cart">do košíka</a> 
+                </div>
+            </div>`;   
+            $('#good').append(newProd);
+        }
+    });
+});
+
 
 for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na stranke
     carts[i].addEventListener('click', () => {      //prida udalost - "click"
@@ -41,7 +67,7 @@ for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na 
     })
 }
 
-function onLoadCartNumbers() { //funkcia priadania cisla pri kosiku - nacitanie s localstorage aby tam ostalo take cislo aj po zatvoreni stranky
+function onLoadCartNumbers() { //funkcia pridania cisla pri kosiku - nacitanie s localstorage aby tam ostalo take cislo aj po zatvoreni stranky
     let productNumbers = localStorage.getItem('cartNumbers');
     
     if(productNumbers) {
@@ -116,113 +142,47 @@ function totalCost(product) {
 // kosik.html - nepopisujem budem to prerabat ked som sa do toho uz pustil
 // myslim ze tuto funkcionalitu mozme pouzit aj na stranku "zoznam produktov - pridavanie do local storage a potom do kosika," 
 
-function generateTable() { //funckkia zobrazenie kosika
-    let cartItems = localStorage.getItem('productsInCart'); //zobere s localStorage produkty v kosiku do premennej
+function displayCart() {
+    let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
     let productContainer = document.querySelector('.products');
-    // let cartCost = localStorage.getItem('totalCost'); //zobere s kosika celkovu sumu do premenner
-    let totalCost = localStorage.getItem('totalCost');
-
-    //vypocet DPH
-    let totalCostMath = totalCost * 0.20;
-    let totalCostDPH = totalCost - totalCostMath;
+    let cartCost = localStorage.getItem('totalCost');
 
     console.log(cartItems);
-
-    if(cartItems && productContainer && totalCost ) {
+    if(cartItems && productContainer ) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
-            productContainer.innerHTML += `
-            <td class="products">
+            productContainer.innerHTML += `    
+            <div class="product">
+                <i class="far fa-trash-alt"></i>
                 <span>${item.name}</span>
-            </td>
-            <td class="price">${item.price},00</td>
-            <td class="quantity">
-                <i class="icon fas fa-arrow-alt-circle-left"></i>
+            </div>
+            <div class="price">${item.price},00</div>
+            <div class="quantity">
+                <i class="fas fa-arrow-alt-circle-left"></i>
                 <span>${item.inCart}</span>
                 <i class="fas fa-arrow-alt-circle-right"></i>
-            </td>
-            <td class="total">
-                €${item.inCart * item.price},00
-            </td>
-            <td>
-                <i onClick="removeProdukt()" class="far fa-trash-alt" id="icon"></i>
-            </td> 
+            </div>
+            <div class="total">
+            €${item.inCart * item.price},00
+            </div>
             `
         });
 
 
         productContainer.innerHTML += `
-            <h4>
-                CELKOVÁ CENA: €${totalCost}.00
-            </h4>
-            <h5>
-                CELKOVÁ CENA BEZ DPH: €${totalCostDPH}.00
-            </h5>
+            <div class="basketTotalContainer">
+                <h4 class="basketTotalTitle">
+                    celková cena
+                <h4 class="basketTotal>
+                    €${cartCost}.00
+                </h4>
         `
     }
-
     
 }
 
 onLoadCartNumbers();
-generateTable()
-
-//odstranenie produktu s kosika
-
-function removeProdukt() {
-    document.getElementById('icon');
-    console.log('funguje');
-
-    generateTable();
-}
-
-// let removeIcon = document.getElementById('icon');
-//     removeIcon.addEventListener('icon', () => {
-//         console.log('odstranit z kosika');
-        
-//     })
+displayCart()
 
 
-
-
-// function displayCart() { //funckkia zobrazenie kosika
-//     let cartItems = localStorage.getItem('productsInCart');
-//     cartItems = JSON.parse(cartItems);
-//     let productContainer = document.querySelector('.products');
-//     let cartCost = localStorage.getItem('totalCost');
-
-//     console.log(cartItems);
-    
-//     if(cartItems && productContainer ) {
-//         productContainer.innerHTML = '';
-//         Object.values(cartItems).map(item => {
-//             productContainer.innerHTML += `
-//             <div class="product">
-//                 <i class="far fa-trash-alt"></i>
-//                 <span>${item.name}</span>
-//             </div>
-//             <div class="price">${item.price},00</div>
-//             <div class="quantity">
-//                 <i class="fas fa-arrow-alt-circle-left"></i>
-//                 <span>${item.inCart}</span>
-//                 <i class="fas fa-arrow-alt-circle-right"></i>
-//             </div>
-//             <div class="total">
-//             €${item.inCart * item.price},00
-//             </div>
-//             `
-//         });
-
-
-//         productContainer.innerHTML += `
-//             <div class="basketTotalContainer">
-//                 <h4 class="basketTotalTitle">
-//                     celková cena
-//                 <h4 class="basketTotal>
-//                     €${cartCost}.00
-//                 </h4>
-//         `
-//     }
-    
-// }
