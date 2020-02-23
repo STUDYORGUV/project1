@@ -33,6 +33,8 @@ let products = [
 ];
 
 
+
+
 for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na stranke
     carts[i].addEventListener('click', () => {      //prida udalost - "click"
         console.log('pridat do kosika');
@@ -238,3 +240,42 @@ function removeProduct() {
 //     }
     
 // }
+
+//PRODUKTY.HTML
+$(document).ready(function() {
+    
+    $('#good').empty();
+    $.get('eshop.json', function(response) {
+        
+            for (let prod of response) {
+                console.log(prod);
+                let newProd = `
+                <div  class="goods">
+                        <div class="tool-box">
+                            <img src="${prod.image}" alt="product_1">
+                            <a href=""></a>
+                        </div>
+                        <div class="description">
+                            <p>${prod.name}</p>
+                            <div class="values">
+                                <h4>${prod.specialPrice}</h4>
+                                <span><del>${prod.price}</del></span>
+                            </div>
+                        </div>
+                    <div class="cart">
+                        <a class="add-cart">do košíka</a> 
+                    </div>
+                </div>`;   
+                $('#good').append(newProd); 
+            }       
+    
+
+            $("#myBtn").click(function(){
+                var str = $("#myInput").val();
+                console.log(str);
+                $("").hide()
+            });
+    
+    });
+});
+
