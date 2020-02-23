@@ -33,8 +33,6 @@ let products = [
 ];
 
 
-
-
 for (let i=0; i < carts.length; i++) {              //pre-iteruje 4 produkty na stranke
     carts[i].addEventListener('click', () => {      //prida udalost - "click"
         console.log('pridat do kosika');
@@ -147,8 +145,8 @@ function generateTable() { //funckkia zobrazenie kosika
             <td class="total">
                 €${item.inCart * item.price},00
             </td>
-            <td>
-                <i onClick="removeProdukt()" class="far fa-trash-alt" id="icon"></i>
+            <td class="remove">
+                <i class="far fa-trash-alt" id="icon"></i>
             </td> 
             `
         });
@@ -162,6 +160,8 @@ function generateTable() { //funckkia zobrazenie kosika
                 CELKOVÁ CENA BEZ DPH: €${totalCostDPH}.00
             </h5>
         `
+        removeProduct();
+        
     }
 
     
@@ -170,14 +170,27 @@ function generateTable() { //funckkia zobrazenie kosika
 onLoadCartNumbers();
 generateTable()
 
-//odstranenie produktu s kosika
+//odstranenie produktu s kosika // zatial rozrobene - skusam
 
-function removeProdukt() {
-    
-    document.getElementById('icon');
-    console.log('funguje');
+function removeProduct() {
+    let deleteBtns = document.getElementsByClassName('remove');
+    console.log('funguje', deleteBtns);
+    let productNumbers = localStorage.getItem('cartNumbers');
+    let cartCost = localStorage.getItem('totalCost');
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let productName;
 
-    generateTable();
+    for(let i = 0; i < deleteBtns.length; i++) {
+        let x =  deleteBtns[i].addEventListener('click', () => {
+            productName = deleteBtns[i].textContent.toLocaleLowerCase().replace(/ /g,'').trim();
+          
+            console.log('funguje', x);
+
+            generateTable();
+            onLoadCartNumbers();
+        })   
+    }
 }
 
 // let removeIcon = document.getElementById('icon');
@@ -229,46 +242,3 @@ function removeProdukt() {
 //     }
     
 // }
-
-//PRODUKTY.HTML
-$(document).ready(function() {
-    
-    $('#good').empty();
-    $.get('eshop.json', function(response) {
-        
-            for (let prod of response) {
-                console.log(prod);
-                let newProd = `
-                <div  class="goods">
-                        <div class="tool-box">
-                            <img src="${prod.image}" alt="product_1">
-                            <a href=""></a>
-                        </div>
-                        <div class="description">
-                            <p>${prod.name}</p>
-                            <div class="values">
-                                <h4>${prod.specialPrice}</h4>
-                                <span><del>${prod.price}</del></span>
-                            </div>
-                        </div>
-                    <div class="cart">
-                        <a class="add-cart">do košíka</a> 
-                    </div>
-                </div>`;   
-                $('#good').append(newProd); 
-                
-            }       
-    
-            $("#myBtn").on("click",function(){
-                let str = $("#myInput").val().toLowerCase();
-                console.log(str);
-                $(".goods").toggle($(".goods").find("p").text().toLowerCase().indexOf(str) > -1);
-                console.log(p);
-                
-                         
-            });
-            
-    
-    });
-});
-
