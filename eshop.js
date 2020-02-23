@@ -145,8 +145,8 @@ function generateTable() { //funckkia zobrazenie kosika
             <td class="total">
                 €${item.inCart * item.price},00
             </td>
-            <td>
-                <i onClick="removeProdukt()" class="far fa-trash-alt" id="icon"></i>
+            <td class="remove">
+                <i onClick="removeProduct()" class="icon far fa-trash-alt"></i>
             </td> 
             `
         });
@@ -168,13 +168,25 @@ function generateTable() { //funckkia zobrazenie kosika
 onLoadCartNumbers();
 generateTable()
 
-//odstranenie produktu s kosika
+//odstranenie produktu s kosika // zatial rozrobene - skusam
 
-function removeProdukt() {
-    document.getElementById('icon');
+function removeProduct() {
+    let deleteBtns = document.querySelectorAll('.remove .icon');
     console.log('funguje');
+    let productNumbers = localStorage.getItem('cartNumbers');
+    let cartCost = localStorage.getItem('totalCost');
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let productName;
+
+    for(let i = 0; i < deleteBtns.length; i++) {
+        console.log('ikona', [i]);
+
+        
+    }
 
     generateTable();
+    onLoadCartNumbers();
 }
 
 // let removeIcon = document.getElementById('icon');
