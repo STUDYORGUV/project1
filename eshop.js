@@ -173,6 +173,7 @@ generateTable()
 //odstranenie produktu s kosika
 
 function removeProdukt() {
+    
     document.getElementById('icon');
     console.log('funguje');
 
@@ -255,14 +256,18 @@ $(document).ready(function() {
                     </div>
                 </div>`;   
                 $('#good').append(newProd); 
+                
             }       
     
-
-            $("#myBtn").click(function(){
-                var str = $("#myInput").val();
+            $("#myBtn").on("click",function(){
+                let str = $("#myInput").val().toLowerCase();
                 console.log(str);
-                $("").hide()
+                $(".goods").toggle($(".goods").find("p").text().toLowerCase().indexOf(str) > -1);
+                console.log(p);
+                
+                         
             });
+            
     
     });
 });
