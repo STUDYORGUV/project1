@@ -2,8 +2,8 @@
     "id": 1,
     "category": "men",
     "name": "Pánska mikina",
-    "price": "€50.00",
-    "specialPrice": "€45.00",
+    "price": 50.00,
+    "specialPrice": 45.00,
     "isSpecial": true,
     "storeAvailable": true,
     "pieces": 50,
@@ -12,14 +12,14 @@
     "color": "tmavá hnedá",
     "about": "Pánska športová mikina. Zvnútra zateplená. Vpredu je našitý zips a vrecko. Kapucňu a spodný patent je možné regulovať šnúrkami. Patenty sú aj na rukávoch.",
     "care": ["img/107.svg", "img/103.svg", "img/403.svg"],
-    "image": "../img/product_1.png"
-
+    "image": "../img/product_1.png",
+    "inCart": 0
 }, {
     "id": 2,
     "category": "accessories",
     "name": "Dámska taška",
-    "price": "",
-    "specialPrice": "€50.00",
+    "price": 50.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 30,
@@ -28,13 +28,14 @@
     "color": "zelená a hnedá",
     "about": "Dámska taška. Vo vnútri je futro, vrecko so zipsom pre doklady a uško na kľúče. Rúčka a obvod je spevnený prešitým koženým pásom o šírke 8cm.",
     "care": ["img/110.svg", "img/505.svg", "img/203.svg"],
-    "image": "img/product_2.png"
+    "image": "img/product_2.png",
+    "inCart": 0
 }, {
     "id": 3,
     "category": "women",
     "name": "Dámsky pulóver",
-    "price": "€40.00",
-    "specialPrice": "€32.00",
+    "price": 40.00,
+    "specialPrice": 32.00,
     "isSpecial": true,
     "storeAvailable": true,
     "pieces": 25,
@@ -43,13 +44,14 @@
     "material": "100% akryl",
     "about": "Dámsky pulóver, pletený. Jednoduchý vzor, voľný strih. Vhodný na bežné nosenie. ",
     "care": ["img/107.svg", "img/110.svg", "img/404.svg", "img/505.svg"],
-    "image": "img/product_3.png"
+    "image": "img/product_3.png",
+    "inCart": 0,
 }, {
     "id": 4,
     "category": "accessories",
     "name": "Dámska športová kabelka",
-    "price": "",
-    "specialPrice": "€30.00",
+    "price": 30.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 11,
@@ -58,14 +60,15 @@
     "color": "zelená",
     "about": "Dámska športová kabelka. Vo vnútri je futro, 2 vrecká a priehradka so zipsom. Rúčky sú prešité okolo celej kabelky. Pre lepšie nosenie má taška aj nastaviteľný popruh.",
     "care": ["img/110.svg", "img/404.svg", "img/203.svg"],
-    "image": "img/product_4.png"
+    "image": "img/product_4.png",
+    "inCart": 0
 },
 {
     "id": 5,
     "category": "accessories",
     "name": "Šnurovacie tenisky",
-    "price": "",
-    "specialPrice": "€20.00",
+    "price": 20.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 30,
@@ -74,14 +77,14 @@
     "color": "okrová",
     "about": "Šnurovacie tenisky. Unisex. Na všedný deň, do školy",
     "care": ["img/107.svg", "img/203.svg"],
-    "image": "img/product_5.png"
-},
+    "image": "img/product_5.png",
+    "inCart": 0
 {
     "id": 6,
     "category": "accessories",
     "name": "Slnečné okuliare",
-    "price": "€15.00",
-    "specialPrice": "€10.00",
+    "price": 15.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 10,
@@ -90,14 +93,15 @@
     "color": "šedá",
     "about": "Slnečné okuliare s UV filtrom, unisex. Letecký vzor. Vhodné na párty, pláž.",
     "care": [],
-    "image": "img/product_6.png"
+    "image": "img/product_6.png",
+    "inCart": 0
 },
 {
     "id": 7,
     "category": "men",
     "name": "Pánsky pletený pulóver",
-    "price": "",
-    "specialPrice": "€50.00",
+    "price": 50.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 26,
@@ -106,14 +110,15 @@
     "color": "okrová",
     "about": "Pánsky pletený pulóver. Vhodný na prechodné obdobie, jar a jeseň. Voľný strih, okrúhly golier, patenty sa rukávoch. ",
     "care": ["img/", "img/"],
-    "image": "img/product_7.png"
+    "image": "img/product_7.png",
+    "inCart": 0
 },
 {
     "id": 8,
     "category": "accessories",
     "name": "Pánska taška",
-    "price": "",
-    "specialPrice": "€70.00",
+    "price": 70.00,
+    "specialPrice": 0.00,
     "isSpecial": false,
     "storeAvailable": true,
     "pieces": 4,
@@ -122,14 +127,15 @@
     "color": "okrová",
     "about": "Pánska taška, ktorá má elegantný design. Vo vnútri sú 4 priehradky.Na boku je odkladací priestor zabezpečený zipsom. Taška sa otvára koženou šnúrkou, zachytenou o podlhovastý gombík.",
     "care": ["img/", "img/"],
-    "image": "img/product_8.png"
+    "image": "img/product_8.png",
+    "inCart": 0
 },
 {
     "id": 9,
     "category": "men",
     "name": "Blejzer",
-    "price": "€120.00",
-    "specialPrice": "€100.00",
+    "price": 120.00,
+    "specialPrice": 100.00,
     "isSpecial": true,
     "storeAvailable": true,
     "pieces": 3,
@@ -138,14 +144,15 @@
     "color": "piesková",
     "about": "Blejzer, vhodný do práce, do školy, na bežné nosenie. Pohodlný voľný štýl. Výstrih v tvare V, bez goliera. Vpredu sú našité 3 vrecká. Vnútro je podšité saténom.V podšívke na hrudi je prišité vrecko.",
     "care": ["img/", "img/"],
-    "image": "img/product_9.png"
+    "image": "img/product_9.png",
+    "inCart": 0
 },
 {
     "id": 10,
     "category": "men",
     "name": "Pánska polokošeľa Polo",
-    "price": "€90.00",
-    "specialPrice": "€45.00",
+    "price": 90.00,
+    "specialPrice": 45.00,
     "isSpecial": true,
     "storeAvailable": true,
     "size": ["S", "M", "L", "XL"],
@@ -154,6 +161,7 @@
     "color": "kaki(zelená)",
     "about": "Pánska polokošeľa Polo. Vhodné ako Causal štýl. Voľný strih, tenký úplet, s dlhým rukávom. Okolo krku je golier s otvoreným výstrihom tvaru V, bez zapínania.",
     "care": ["img/107.svg", "img/203.svg", "img/403.svg", "img/505.svg"],
-    "image": "img/product_10.png"
+    "image": "img/product_10.png",
+    "inCart": 0
 }
 ]
