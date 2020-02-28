@@ -206,29 +206,42 @@ body {
     justify-content: space-around; 
     margin: 0 auto;
     margin-top: 50px; 
+    
 }
 
 .products {
-    text-align: center;
+    text-align: left;
+    font-weight:600;
 }
 
-.price {
-    padding-left: 10px;
-    text-align: center;
-}
+
 
 .products-container .far{
-    color: red;
+    color:rgb(231, 72, 76);;
     margin: 0 5px;
     cursor: pointer;
 }
 
-.product-header {
-    border-bottom: 1px solid lightgrey;
+ 
+thead {
+    margin:0px;
+    font-size:18px;
+    background-color: lightgrey;
+    border-bottom: 2px solid lightgrey;
+    color:black;
+    th{
+        padding:5px 15px;
+        border-radius: 3px;
+    }
 }
 
 tbody td {
     border-bottom: 1px solid lightgrey;
+    font-size:16px;
+}
+.remove{
+    font-size:18px;
+    margin:0 0 0 10px;
 }
 
 // .product-header {
@@ -250,13 +263,25 @@ tbody td {
 //     align-items: center;
 // }
 
-.quantity {
-    padding: 0 10px;
-    text-align: center;
+.amount{
+    margin:0px;
 }
 
-.total {
+.price,
+.total,
+.quantity {
     text-align: center;
+}
+.total-price{
+    padding:25px 0 0 0;
+    color: rgb(231, 72, 76);
+    border-bottom:none;
+    text-decoration:underline ;
+    font-weight:400;
+}
+.dph{
+    padding:5px 0;
+    border-bottom:none;
 }
 
 // .product {
@@ -583,6 +608,37 @@ tbody td {
     }
 }
 
+
+.order{
+    cursor: pointer;
+    margin-top:10px;
+    background-color: rgb(231, 72, 76);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px; 
+    padding:5px 25px;
+    color: white;  
+}
+.order:hover,
+.order:active{
+    background-color: rgb(250, 103, 108);
+}
+.empty{
+    cursor:pointer;
+    margin-top:10px;
+    background-color: rgb(182, 179, 179);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px; 
+    padding:8px 20px;
+    border:1px solid grey; 
+    margin:0px;
+    font-weight:600;
+}
+.empty:hover,
+.empty:active {
+    background-color: lightgrey;
+}
 .footer-1 {
     display: flex;
     flex-wrap: wrap;
@@ -610,11 +666,13 @@ tbody td {
         display: flex;
         margin: 0px;
         padding: 0px;
+        border-radius: 10px;
         //font-weight: 900;
         & input,
         button {
             font-size: 14px;
             border: none;
+            border-radius: 3px;
            
         }
         & input {
