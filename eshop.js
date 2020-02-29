@@ -165,6 +165,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 Object.values(cartItems).map(item => {
                     if (item.specialPrice === 0.00) {
                         productContainer.innerHTML += `
+                        <td class="product-id">${item.id}</td>
                         <td class="products">
                             <span class="product-name">${item.name}</span>
                         </td>
@@ -181,6 +182,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                             <i class="far fa-trash-alt" id="icon"></i>
                         </td>`
                     } else {productContainer.innerHTML += `
+                        <td class="product-id">${item.id}</td>
                         <td class="products">
                             <span class="product-name">${item.name}</span>
                         </td>
@@ -204,16 +206,19 @@ $(document).ready(function() { //POUZI LEN TOTO
 
                 productContainer.innerHTML += `
                 <td class="dph"></td>
+                <td class="dph"></td>
                 <td class="total-price"></td>
                 <td class="total-price total">CELKOVÁ CENA: </td>
                 <td class="total total-price">€ ${totalCost}.00</td>`
 
                 productContainer.innerHTML += ` 
                 <td class="dph"></td>
+                <td class="dph"></td>
                 <td class="dph"></td>             
                 <td class="dph">CELKOVÁ CENA BEZ DPH:</td>
                 <td class="dph total">€ ${totalCostDPH}.00</td>`
                 productContainer.innerHTML += ` 
+                <td class="dph"></td>
                 <td class="dph"></td>
                 <td class="dph"></td>             
                 <td class="dph total"><button class="empty">Vyprázdniť košík</button></td>
@@ -229,17 +234,19 @@ $(document).ready(function() { //POUZI LEN TOTO
 
         //odstranenie produktu s kosika // zatial rozrobene - skusam
 
-        $(".icon").click(function()  {
-            let deleteBtns = document.getElementsByClassName('remove');
-            console.log('funguje', deleteBtns);
-
-           
+        $("#icon").click(function()  {
             let cartItems = localStorage.getItem('productsInCart');
             let productNumbers = localStorage.getItem('cartNumbers');
             let cartCost = localStorage.getItem('totalCost');
+            
+            let deleteBtns = $(".product-id").text();
+            console.log('funguje', deleteBtns);
+
+          
+            
             for (let item of cartItems) { 
             
-                console.log(proId);
+                //console.log(proId);
             
                 //dostat ID z pola productsCart
                 //vynat object z local storage podla id
@@ -262,7 +269,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                         
                     }) 
                 }  
-            
+            }
             onLoadCartNumbers();
             generateTable();
         });
@@ -272,10 +279,9 @@ $(document).ready(function() { //POUZI LEN TOTO
             localStorage.removeItem('cartNumbers');
             localStorage.removeItem('productsInCart');
             localStorage.removeItem('totalCost');
-            let cardN
             onLoadCartNumbers();
             generateTable();
         });
-            
+        onLoadCartNumbers();         
     });
 }); 

@@ -323,7 +323,8 @@ tbody td {
 
 .price,
 .total,
-.quantity {
+.quantity,
+.product-id {
   text-align: center;
 }
 
