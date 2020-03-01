@@ -64,6 +64,7 @@ body {
 
 .head-1 #navbar-1 a .fas {
   color: #8c8c8c;
+  padding: 0 5px;
 }
 
 .head-1 #navbar-1 a:hover {
