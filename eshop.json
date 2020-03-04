@@ -12,7 +12,7 @@
     "color": "tmavá hnedá",
     "about": "Pánska športová mikina. Zvnútra zateplená. Vpredu je našitý zips a vrecko. Kapucňu a spodný patent je možné regulovať šnúrkami. Patenty sú aj na rukávoch.",
     "care": ["img/107.svg", "img/103.svg", "img/403.svg"],
-    "image": "../img/product_1.png",
+    "image": "img/product_1.png",
     "inCart": 0
 }, {
     "id": 2,

@@ -58,12 +58,55 @@
                     <ul id="navbar-3">
                         <li><a href=""><i class="fas fa-search"></i></a></li>
                         <li><a href=""><i class="fas fa-user"></i></a></li>
-                        <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href=""><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
                     </ul>
                 </nav>
             </div>
         </section>
     </header>
+<!-- objednavkovy formulár---------------------------------------------------- -->
+
+    <form>
+        <h2>Objednávkový formulár</h2>
+
+        <fieldset>
+            <legend>Kontaktné údaje</legend>
+                <input type="text" name="firstname" placeholder="* Meno" maxlength="20" required>
+                <input type="text" name="surname" placeholder="* Priezvisko" maxlength="20" required>
+                <input type="number" name="tel" placeholder="tel. kontakt">
+                <input type="email" name="email" placeholder="* E-mail" required>
+        </fieldset>
+        <fieldset>
+            <legend>Adresa</legend>
+                <input type="text" name="street" placeholder="* ulica" required>
+                <input type="number" name="zipcode" placeholder="* PSČ" required>
+                <input type="number" name="housenumber" placeholder="* čślo domu" required>
+                <input type="text" name="city" placeholder="* mesto/obec" required>
+        </fieldset>
+        <fieldset class="final-form">
+            <legend>Objednané produkty</legend>
+            
+            <table class="form-container">
+                <thead class="product-header">
+                    <th class="product-id">KÓD PRODUKTU</th>
+                    <th class="product-title">PRODUKT</th>
+                    <th class="quantity">MNOŽSTVO</th>
+                </thead>
+                <tbody class="products">
+                    <tr class="product-row"></tr>
+                </tbody>
+                
+            </table>
+
+        </fieldset>
+
+        <button>potvrdiť objednávku</button>
+        <button>Zrušiť objednávku</button>
+    </form>
+
+    <h2><a href="index.html">DO OBCHODU</a></h2>
+
+<!--------------------------------------------------------------------------  -->
 
     <footer>
         <section class="footer-1">
@@ -112,7 +155,7 @@
 
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../js/eshop.js"></script>
+    <script src="eshop-form.js"></script>
 </body>
 
 </html>
