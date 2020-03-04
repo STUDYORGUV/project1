@@ -341,6 +341,31 @@ tbody td {
   border-bottom: none;
 }
 
+form {
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+form, h2, legend {
+  text-align: center;
+}
+
+fieldset input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px auto;
+  padding: 5px 30px;
+}
+
+.final-form {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .part-3,
 .part-5,
 .part-6 {
