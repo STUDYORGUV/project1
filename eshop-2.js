@@ -3,11 +3,11 @@
 $(document).ready(function() { //POUZI LEN TOTO
     
    //VZDY PRED NACITANIM MA BYT KOSIK PRAZDNY
-
-    $.get('eshop.json', function(products) { //TU DAVAS POZIADAVKU NA TAHANIE DAT S DATABAZY eshop.json
-        $('#good').empty(); 
-        let newProd;
-  
+    $.get('eshop.json', function(products) { //TU DAVAS POZIADAVKU NA TAHANIE DAT Z DATABAZY eshop.json
+                
+            $('#good').empty(); 
+            //$('#woman').empty(); 
+            let newProd;
             for (let prod of products) {  //CYKLUS NA VYPISANIE VSETKYCH PRODUKTOV, na stranke produkty a domov
                 console.log(prod); 
 
@@ -86,10 +86,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 $('#woman').hide();
             }); 
 
-        
-               
-            // FILTER: ESTE NEFUGUJE chcem, aby zobrazilo iba produkty, podľa názvu, ktorý zadám do input a klik na lupu... :-/
-
+            //VYHLADAVANIE: zobrazi iba produkty, podľa názvu, ktorý zadám do input a klik na lupu...
             $("#myBtn").on("click",function(){
                 let str = $("#myInput").val().toLowerCase();
                 console.log(str);
@@ -105,7 +102,6 @@ $(document).ready(function() { //POUZI LEN TOTO
                    }
                 }    
             });
-
         
         //VYKRESLENIE jednemu produktu do stranky produkt.html
 
@@ -115,12 +111,11 @@ $(document).ready(function() { //POUZI LEN TOTO
             carts[i].addEventListener('click', () => {      //prida udalost - "click"
                 console.log('pridat do kosika');
                 cartNumbers(products[i]);
-                totalCost(products[i])
+                totalCost(products[i]);
             })
         }
-
         //funkcia pridania cisla pri kosiku - nacitanie s localstorage aby tam ostalo take cislo aj po zatvoreni stranky
-        function onLoadCartNumbers() {
+        function onLoadCartNumbers() { 
             let productNumbers = localStorage.getItem('cartNumbers');
             console.log(productNumbers);
             
@@ -133,15 +128,12 @@ $(document).ready(function() { //POUZI LEN TOTO
 
         function cartNumbers(product) {        //funckia pridanie do kosika pocet produktov ich hodnota do local storage key=cartNumbers, value = pocet produktov
             console.log('kliknuty produkt je:', product);
+            
             let productNumbers = localStorage.getItem('cartNumbers'); // nacitanie hodnoty v localstorage (value)
             productNumbers = parseInt(productNumbers); //skonvertuje string na cislo
             console.log(productNumbers);
             // ak "porductNumber" existuje pridaj do localStorage +1, odporucam pozriet tutorial ktory som ti posielal
             if (productNumbers) { 
-            productNumbers = parseInt(productNumbers); //skonvertuje string na cislo
-            console.log(productNumbers);
-
-            if (productNumbers) { // ak "porductNumber" existuje pridaj do localStorage +1, odporucam pozriet tutorial ktory som ti posielal part 2/5 cca 12:00 min, 
                 localStorage.setItem('cartNumbers', productNumbers + 1);
                 //pridanie cisla na ikonu kosik (pocet produktov v kosiku)
                 document.querySelector('.icon').textContent = productNumbers + 1;
@@ -182,8 +174,6 @@ $(document).ready(function() { //POUZI LEN TOTO
         function totalCost(product) {
             console.log('cena produktu je', product.price);
             let cartCost = localStorage.getItem('totalCost');
-
-
             console.log('celkova cena v kosiku', cartCost);
 
             //tu nepopisujem myslim ze je to zrozumitelne plus hore to co sa deje hore vypisuje "console.log" (tutorail part 4/5)
@@ -204,9 +194,10 @@ $(document).ready(function() { //POUZI LEN TOTO
             }
         }
 
+        // kosik.html - nepopisujem budem to prerabat, ked som sa do toho uz pustil
+        // myslim ze tuto funkcionalitu mozme pouzit aj na stranku "zoznam produktov - pridavanie do local storage a potom do kosika," 
         function generateTable() { //funkcia zobrazenie kosika
-            let cartItems = localStorage.getItem('productsInCart'); //zobere s localStorage produkty v kosiku do premennej
-
+            let cartItems = localStorage.getItem('productsInCart'); //zoberie s localStorage produkty v kosiku do premennej
             cartItems = JSON.parse(cartItems);
             let productContainer = document.querySelector('.products');
             // let cartCost = localStorage.getItem('totalCost'); //zobere z kosika celkovu sumu do premennej
@@ -216,12 +207,10 @@ $(document).ready(function() { //POUZI LEN TOTO
             let totalCostMath = totalCost * 0.20;
             let totalCostDPH = (totalCost - totalCostMath).toFixed(2);
 
-            console.log(cartItems);
-            if (cartItems === null) {
+            //console.log(cartItems);
+            if (cartItems === null || cartItems == 0) {
                 productContainer.innerHTML += `<h2>Košík je prázdny !</h2>`   
-            }
-
-            if(cartItems && productContainer && totalCost) {
+            } else if (cartItems && productContainer && totalCost) {
                 $('.products').empty();                // prikaz v jquery namiesto javascriptoveho: productContainer.innerHTML = '';
                 Object.values(cartItems).map(item => {
                     // ošetrila som podmienkou, že ak je akciová cena, aby túto cenu pripočítavalo ku celkovej cene
@@ -259,7 +248,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     }
                 });
 
-                // vypisuj riadok s celkovou cenou
+                //vypisuj riadok s celkovou cenou
                 productContainer.innerHTML += `
                 <td class="dph"></td>
                 <td class="dph"></td>
@@ -267,7 +256,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="total-price total">CELKOVÁ CENA: </td>
                 <td class="total total-price">€ ${totalCost}.00</td>`
                 
-                // vypisuje riadok s celkovou cenou s DPH
+                //vypisuje riadok s celkovou cenou s DPH
                 productContainer.innerHTML += ` 
                 <td class="dph"></td>
                 <td class="dph"></td>
@@ -275,7 +264,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="dph">CELKOVÁ CENA BEZ DPH:</td>
                 <td class="dph total">€ ${totalCostDPH}</td>`
 
-                // vypisuje riadok, kde su ikonky vyorázdniť košík a objednávka
+                //vypisuje riadok, kde su ikonky vyorázdniť košík a objednávka
                 productContainer.innerHTML += `
                 <td class="dph"></td>
                 <td class="dph"></td>
@@ -325,7 +314,4 @@ $(document).ready(function() { //POUZI LEN TOTO
     });
 });
 
-// ---------------OBJEDNAVKOVY FORMULAR-----------------
-
-
-
+// ---------------OBJEDNAVKOVY FORMULAR-----------------//
