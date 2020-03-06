@@ -27,10 +27,7 @@
 
             <nav>
                 <ul id="navbar-1">
-                    <li><a href="">USD</a><i class="fas fa-angle-down"></i>
-                    </li>
-                    <li><a href="">English</a><i class="fas fa-angle-down"></i></li>
-                    <li><a href="">My account</a><i class="fas fa-angle-down"></i></li>
+                    <li><a href="">Môj účet<i class="fas fa-chevron-down"></i></a></li>
                 </ul>
             </nav>
 
@@ -45,39 +42,43 @@
             <div class="wrap-2">
                 <nav>
                     <ul id="navbar-2">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">Promotion</a></li>
-                        <li><a href="">Pages</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Contact</a>
-                        </li>
+                        <li><a href="index.html">domov</a></li>
+                        <li><a href="produkty.html">obchod</a></li>
+                        <li><a href="objednavka.html">objednávka</a></li>
+                        <li><a href="kontakt.html">kontakt</a></li>
                     </ul>
                 </nav>
                 <nav>
                     <ul id="navbar-3">
-                        <li><a href=""><i class="fas fa-search"></i></a></li>
-                        <li><a href=""><i class="fas fa-user"></i></a></li>
-                        <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href="kosik.html"><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
                     </ul>
                 </nav>
             </div>
         </section>
     </header>
 
+    <!--VYKRESLI PRODUKTY-->
+    <section> 
+        <div class="part-3">
+            <div id="good" class="good-box"></div>
+        </div>   
+    </section>
+        <!--VYKRESLI PRODUKTY-->
+
     <footer>
-        <section class="footer-1">
 
-            <div class="wrap-3">
-                <h2>Newsletter</h2>
-                <h3>Subscribe to our newsletter and get 20% off your first purchase</h3>
-            </div>
+        <section>
+                <div class="footer-1">
+                    <div class="wrap-3">
+                        <h2>Novinky</h2>
+                        <h3>Subscribe to our newsletter and get 20% off your first purchase (TEXT ZMENIT!</h3>
+                    </div>
 
-            <div class="payment">
-                <input type="text" placeholder="Your email">
-                <button type="submit">Subscribe</button>
-            </div>
-
+                    <div class="confirm">
+                        <input id="myInput" type="text" placeholder="Hľadám tovar . . .">
+                        <button type="submit" id="myBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
         </section>
 
 
@@ -111,8 +112,9 @@
         </section>
 
     </footer>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../js/eshop.js"></script>
+    <script src="eshop-2.js"></script>
 </body>
 
 </html>

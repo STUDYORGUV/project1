@@ -12,9 +12,9 @@
     "color": "tmavá hnedá",
     "about": "Pánska športová mikina. Zvnútra zateplená. Vpredu je našitý zips a vrecko. Kapucňu a spodný patent je možné regulovať šnúrkami. Patenty sú aj na rukávoch.",
     "care": ["img/107.svg", "img/103.svg", "img/403.svg"],
-    "image": "../img/product_1.png",
+    "image": "img/product_1.png",
     "inCart": 0
-}, {
+},{
     "id": 2,
     "category": "accessories",
     "name": "Dámska taška",
@@ -30,7 +30,7 @@
     "care": ["img/110.svg", "img/505.svg", "img/203.svg"],
     "image": "img/product_2.png",
     "inCart": 0
-}, {
+},{
     "id": 3,
     "category": "women",
     "name": "Dámsky pulóver",
@@ -46,7 +46,7 @@
     "care": ["img/107.svg", "img/110.svg", "img/404.svg", "img/505.svg"],
     "image": "img/product_3.png",
     "inCart": 0
-}, {
+},{
     "id": 4,
     "category": "accessories",
     "name": "Dámska športová kabelka",
@@ -94,8 +94,7 @@
     "care": [],
     "image": "img/product_6.png",
     "inCart": 0
-},
-{
+},{
     "id": 7,
     "category": "men",
     "name": "Pánsky pletený pulóver",
@@ -111,8 +110,7 @@
     "care": ["img/", "img/"],
     "image": "img/product_7.png",
     "inCart": 0
-},
-{
+},{
     "id": 8,
     "category": "accessories",
     "name": "Pánska taška",
@@ -128,8 +126,7 @@
     "care": ["img/", "img/"],
     "image": "img/product_8.png",
     "inCart": 0
-},
-{
+},{
     "id": 9,
     "category": "men",
     "name": "Blejzer",
@@ -145,8 +142,7 @@
     "care": ["img/", "img/"],
     "image": "img/product_9.png",
     "inCart": 0
-},
-{
+},{
     "id": 10,
     "category": "men",
     "name": "Pánska polokošeľa Polo",
@@ -162,5 +158,4 @@
     "care": ["img/107.svg", "img/203.svg", "img/403.svg", "img/505.svg"],
     "image": "img/product_10.png",
     "inCart": 0
-}
-]
+}]

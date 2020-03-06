@@ -311,6 +311,32 @@ tbody td {
 //     width: 10%;
 // }
 //------------------------------CART-----------------------------
+
+// ---------------------OBJEDNAVKOVY FORMULAR--------------------
+form {
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+form, h2, legend {
+    text-align: center;
+}
+
+fieldset input {
+    display: flex;
+    margin:5px auto;
+    padding: 5px 30px;
+}
+
+.final-form {
+   justify-content: center;
+}
+
+
+// ---------------------OBJEDNAVKOVY FORMULAR--------------------
+
 .part-3,
 .part-5,
 .part-6 {

@@ -27,9 +27,7 @@
 
             <nav>
                 <ul id="navbar-1">
-                    <li><a href="">USD</a><i class="fas fa-angle-down"></i>
-                    </li>
-                    <li><a href="">English</a><i class="fas fa-angle-down"></i></li>
+                   
                     <li><a href="">My account</a><i class="fas fa-angle-down"></i></li>
                 </ul>
             </nav>
@@ -45,25 +43,61 @@
             <div class="wrap-2">
                 <nav>
                     <ul id="navbar-2">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">Promotion</a></li>
-                        <li><a href="">Pages</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Contact</a>
-                        </li>
+                        <li><a href="index.html">domov</a></li>
+                        <li><a href="produkty.html">obchod</a></li>
+                        <li><a href="objednavka.html">objednávka</a></li>
+                        <li><a href="kontakt.html">kontakt</a>
                     </ul>
                 </nav>
                 <nav>
                     <ul id="navbar-3">
-                        <li><a href=""><i class="fas fa-search"></i></a></li>
-                        <li><a href=""><i class="fas fa-user"></i></a></li>
-                        <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href=""><i class="fas fa-shopping-cart"></i><span class="icon">0</span></a></li>
                     </ul>
                 </nav>
             </div>
         </section>
     </header>
+
+<!----------------------------------------- objednavkovy formulár--------------------------------------->
+
+    <form action="http://codetime.sk/itvkurze/order.php" method="POST">
+        <h2>Objednávkový formulár</h2>
+
+        <fieldset>
+            <legend>Kontaktné údaje</legend>
+                <input type="text" name="Meno" placeholder="* Meno" maxlength="20" required>
+                <input type="text" name="Priezvisko" placeholder="* Priezvisko" maxlength="20" required>
+                <input type="number" name="Telefón" placeholder="tel. kontakt">
+                <input type="email" name="E-mail" placeholder="* E-mail" required>
+        </fieldset>
+        <fieldset>
+            <legend>Adresa</legend>
+                <input type="text" name="Ulica" placeholder="* ulica" required>
+                <input type="number" name="PSČ" placeholder="* PSČ" required>
+                <input type="number" name="Číslo domu" placeholder="* číslo domu" required>
+                <input type="text" name="Mesto" placeholder="* mesto/obec" required>
+        </fieldset>
+        <fieldset class="final-form">
+            <legend>Objednané produkty</legend>
+            
+            <table class="form-container">
+                <thead class="product-header">
+                    <th class="product-id">KÓD PRODUKTU</th>
+                    <th class="product-title">PRODUKT</th>
+                    <th class="quantity">MNOŽSTVO</th>
+                </thead>
+                <tbody class="products">
+                    <tr class="product-row"></tr>
+                </tbody>
+            </table>
+
+        </fieldset>
+
+        <button>potvrdiť objednávku</button>
+        <button>Zrušiť objednávku</button>
+    </form>
+
+<!------------------------------------------------------------------------------------------------------------>
 
     <footer>
         <section class="footer-1">
@@ -112,7 +146,7 @@
 
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../js/eshop.js"></script>
+    <script src="eshop-form.js"></script>
 </body>
 
 </html>
