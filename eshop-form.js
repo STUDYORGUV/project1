@@ -64,10 +64,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                        $(y).parent().parent().hide();
                    }
                 }
-             //    console.log($(".goods").find("p").text().toLowerCase().indexOf(str));
-                
-             //     $(".goods").toggle($(".goods").find("p").text().toLowerCase().indexOf(str) > -1);
-             //    console.log(p);      
+             
              });
         
         let carts = document.querySelectorAll('.add-cart');//pomocou tejto metody som zobral vsetky elementy kde sa trieda .add-cart nachádza a je zadefinovana v premennej "carts"
@@ -301,17 +298,11 @@ $(document).ready(function() { //POUZI LEN TOTO
             });
 
         }
-
-
         generateTable();
         onLoadCartNumbers();
     });
 });
 
 // ---------------OBJEDNAVKOVY FORMULAR-----------------
-
-function generateFrom() {
-    
-}
 
 
