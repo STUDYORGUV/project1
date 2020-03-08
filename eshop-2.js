@@ -16,8 +16,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     newProd = `
                     <div  class="goods">
                             <div class="tool-box">
-                                <img src="${prod.image}" alt="product_1">
-                                <a href="produkt.html" id=""></a>
+                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -33,8 +32,8 @@ $(document).ready(function() { //POUZI LEN TOTO
                         newProd = `
                         <div  class="goods">
                             <div class="tool-box">
-                                <img src="${prod.image}" alt="product_1">
-                                <a href="produkt.html" id=""></a>
+                                
+                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -90,64 +89,66 @@ $(document).ready(function() { //POUZI LEN TOTO
                 $('#woman').hide();
             }); 
 
-            // PRODUKT, na stranke produkt a domov - zatial skusam..
+
+             // PRODUKT, na stranke produkt a domov - zatial skusam..
             
             $(".tool-box a").on("click",function(){
-                //$('#details').empty(); 
+                $('#details').empty(); 
                 let detailProd;
-                
                 let detail = $(this).attr('data-id'); //tento zapis ???
                 console.log(detail); 
-                for (let prod of products) {
-                        if(detail === prod.id ){
-                            if (prod.specialPrice === 0.00) {
-                                detailProd = `
-                                <div  class="goods">
-                                        <div class="tool-box">
-                                            <img src="${prod.image}" alt="product_1">
+                for (let prod of products){
+                    if(detail === prod.id ){
+                        if (prod.specialPrice === 0.00) {
+                            detailProd = `
+                            <div  class="goods">
                                         </div>
-                                        <div class="description">
-                                            <p>${prod.name}</p>
-                                            <div class="values">
-                                                <h4>€ ${prod.price.toFixed(2)}</h4>
-                                            </div>
+                                    <div class="tool-box">
+                                        <img src="${prod.image}" alt="product_1">
+                                    </div>
+                                    <div class="description">
+                                        <h2>${prod.name}</h2>
+                                        <p>${prod.about}</p>
+                                        <div class="values">
+                                            <h4>€ ${prod.price.toFixed(2)}</h4>
                                         </div>
+                                    </div>
+                                    </div>
+                                <div class="cart add-cart">
+                                    <a>do košíka</a> 
+                                </div>
+                            </div>`
+                            $('#details').append(detailProd); 
+                        } else {
+                            detailProd = `
+                            <div  class="goods">
+                                    <div class="tool-box">
+                                        <img src="${prod.image}" alt="product_1">
+                                    </div>
+                                    <div class="description">
+                                    <h1>${prod.name}</h1>
+                                        <p>${prod.about}</p>
+                                        <div class="values">
+                                            <h4>€ ${prod.specialPrice.toFixed(2)}</h4>
+                                            <span><del>€ ${prod.price.toFixed(2)}</del></span>
+                                        </div>
+                                    </div>
                                     <div class="cart add-cart">
                                         <a>do košíka</a> 
                                     </div>
-                                </div>`
-                            } else {
-                                    detailProd = `
-                                    <div  class="goods">
-                                        <div class="tool-box">
-                                            <img src="${prod.image}" alt="product_1">
-                                        </div>
-                                        <div class="description">
-                                            <p>${prod.name}</p>
-                                            <div class="values">
-                                                <h4>€ ${prod.specialPrice.toFixed(2)}</h4>
-                                                <span><del>€ ${prod.price.toFixed(2)}</del></span>
-                                            </div>
-                                        </div>
-                                        <div class="cart add-cart">
-                                            <a>do košíka</a> 
-                                        </div>
-                                    </div>`;   
-                            }
-                        }      
+                                </div>`;      
+                                $('#details').append(detailProd);     
+                        }     
+                    }           
                 }
-                $('#details').append(detailProd); 
             });
 
             //VYHLADAVANIE: zobrazi iba produkty, podľa názvu, ktorý zadám do input a klik na lupu...
             $("#myBtn").on("click",function(){
                 let str = $("#myInput").val().toLowerCase();
-                console.log(str);
                 let x = $(".goods").find("p");
-                console.log(x); 
                 let foundProducts = 0;
                 for(let y of x){
-                    console.log(y);
                    const found = $(y).text().toLowerCase().indexOf(str) > -1;
                    if(found) {
                        foundProducts+=1;
@@ -320,6 +321,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="dph total"><button class="empty">Vyprázdniť košík</button></td>
                 <td class="total dph"><a class="order" href="objednavka.html">Objednať<a></td>`
             }
+            
 
             // musi to ist sem, inak to po pregenerovani tabulky prestane fungovat - nebudu naviazane eventy na polozky
             $(".remove").click(function(){
