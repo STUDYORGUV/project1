@@ -185,21 +185,22 @@ $(document).ready(function() { //POUZI LEN TOTO
                     // ošetrila som podmienkou, že ak je akciová cena, aby túto cenu pripočítavalo ku celkovej cene
                     if (item.specialPrice === 0.00) {
                         productContainer.innerHTML += `
-                        <td class="product-id">${item.id}</td>
+                        <td class="product-id">${item.id} <input type="hidden" name="product[${item.id}]['id']" value="${item.id}"/></td>
                         <td class="products">
-                            <span class="product-name">${item.name}</span>
+                            <span class="product-name">${item.name} <input type="hidden" name="product[${item.id}]['name']" value="${item.name}"/></span>
                         </td>
                         <td class="quantity">
-                            <span class="amount">${item.inCart}</span>
+                            <span class="amount">${item.inCart} <input type="hidden" name="product[${item.id}]['amount']" value="${item.inCart}"/></span>
                         </td>
                         `
-                    } else {productContainer.innerHTML += `
-                        <td class="product-id">${item.id}</td>
+                    } else {
+                        productContainer.innerHTML += `
+                        <td class="product-id">${item.id} <input type="hidden" name="product[${item.id}]['id']" value="${item.id}"/></td>
                         <td class="products">
-                            <span class="product-name">${item.name}</span>
+                            <span class="product-name">${item.name} <input type="hidden" name="product[${item.name}]['name']" value="${item.name}"/></span>
                         </td>
                         <td class="quantity">
-                            <span class="amount">${item.inCart}</span>
+                            <span class="amount">${item.inCart}  <input type="hidden" name="product[${item.id}]['amount']" value="${item.inCart}"/></span>
                         </td>
                         `
                     }

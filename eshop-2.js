@@ -1,10 +1,12 @@
 "use strict"
 
 $(document).ready(function() { //POUZI LEN TOTO
-    
-   //VZDY PRED NACITANIM MA BYT KOSIK PRAZDNY
+    $('#notFound').hide();
+
+    //VZDY PRED NACITANIM MA BYT KOSIK PRAZDNY
     $.get('eshop.json', function(products) { //TU DAVAS POZIADAVKU NA TAHANIE DAT Z DATABAZY eshop.json
                 
+            $('#good').empty(); 
             //$('#woman').empty(); 
             let newProd;
             for (let prod of products) {  //CYKLUS NA VYPISANIE VSETKYCH PRODUKTOV, na stranke produkty a domov
@@ -14,7 +16,8 @@ $(document).ready(function() { //POUZI LEN TOTO
                     newProd = `
                     <div  class="goods">
                             <div class="tool-box">
-                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
+                                <img src="${prod.image}" alt="product_1">
+                                <a href="produkt.html" id=""></a>
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -30,7 +33,8 @@ $(document).ready(function() { //POUZI LEN TOTO
                         newProd = `
                         <div  class="goods">
                             <div class="tool-box">
-                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>   
+                                <img src="${prod.image}" alt="product_1">
+                                <a href="produkt.html" id=""></a>
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -62,22 +66,25 @@ $(document).ready(function() { //POUZI LEN TOTO
                 }
             }; 
                 
-            $("#w").on("click",function(){
-                $('#good').hide(); 
+            $("#w").on("click",function(event){
+                event.stopPropagation();
+                $('#good').hide();
                 $('#men').hide();
                 $('#accessories').hide();
                 $('#woman').show();
             }); 
 
-            $("#a").on("click",function(){
-                $('#good').hide(); 
+            $("#a").on("click",function(event){
+                event.stopPropagation();
+                $('#good').hide();
                 $('#men').hide();
                 $('#accessories').show();
                 $('#woman').hide();
             }); 
 
-            $("#m").on("click",function(){
-                $('#good').hide(); 
+            $("#m").on("click",function(event){
+                event.stopPropagation();
+                $('#good').hide();
                 $('#men').show();
                 $('#accessories').hide();
                 $('#woman').hide();
@@ -138,21 +145,28 @@ $(document).ready(function() { //POUZI LEN TOTO
                 console.log(str);
                 let x = $(".goods").find("p");
                 console.log(x); 
+                let foundProducts = 0;
                 for(let y of x){
                     console.log(y);
-                    
                    const found = $(y).text().toLowerCase().indexOf(str) > -1;
-                   console.log(found);
-                   if(!found){
+                   if(found) {
+                       foundProducts+=1;
+                   } else {
                        $(y).parent().parent().hide();
                    }
-                }    
+                }
+                if(foundProducts === 0)
+                {
+                    $('#notFound').show();
+                } else {
+                    $('#notFound').hide();
+                }
             });
         
         //VYKRESLENIE jednemu produktu do stranky produkt.html
 
         let carts = document.querySelectorAll('.add-cart');//pomocou tejto metody som zobral vsetky elementy kde sa trieda .add-cart nachádza a je zadefinovana v premennej "carts"
-        
+
         for (let i=0; i < carts.length; i++) {              //pre-iteruje vsetky produkty na stranke
             carts[i].addEventListener('click', () => {      //prida udalost - "click"
                 console.log('pridat do kosika');
@@ -199,7 +213,7 @@ $(document).ready(function() { //POUZI LEN TOTO
             
             // tutorial part 3/5 11:00 tuto cast nejdem popisovat musim si to znovu pozriet (ja si to este dostudujem a napisem lepsie poznamky k obhajobe)
             if(cartItems !== null) {
-                if(cartItems[product.id] === undefined) 
+                if(cartItems[product.id] === undefined)
                 cartItems = {
                     //tie tri bodky = tutorial part 3/5 16:50 cca
                     // v tejto casti ide o pripocitavanie produktu v localstorage
@@ -207,6 +221,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     [product.id]: product 
                 }
                 cartItems[product.id].inCart += 1;
+            } else {
                 product.inCart = 1; 
                 cartItems = {
                     [product.id] : product
@@ -215,7 +230,6 @@ $(document).ready(function() { //POUZI LEN TOTO
 
             localStorage.setItem('productsInCart', JSON.stringify(cartItems)) //vlozenie produktu do local-storage (key,value)
         }
-
         // funkcia na vypocet celkovej sumy
         function totalCost(product) {
             console.log('cena produktu je', product.price);
@@ -254,44 +268,32 @@ $(document).ready(function() { //POUZI LEN TOTO
             let totalCostDPH = (totalCost - totalCostMath).toFixed(2);
 
             //console.log(cartItems);
-            if (cartItems === null || cartItems == 0) {
+            if ($.isEmptyObject(cartItems)) {
                 productContainer.innerHTML += `<h2>Košík je prázdny !</h2>`   
             } else if (cartItems && productContainer && totalCost) {
                 $('.products').empty();                // prikaz v jquery namiesto javascriptoveho: productContainer.innerHTML = '';
+                let itemPriceActual = 0;
                 Object.values(cartItems).map(item => {
                     // ošetrila som podmienkou, že ak je akciová cena, aby túto cenu pripočítavalo ku celkovej cene
-                    if (item.specialPrice === 0.00) {
-                        productContainer.innerHTML += `
-                        <td class="product-id">${item.id}</td>
-                        <td class="products">
-                            <span class="product-name">${item.name}</span>
-                        </td>
-                        <td class="price">€ ${item.price},00</td>
-                        <td class="quantity">
-                            <span class="amount">${item.inCart}</span>
-                        </td>
-                        <td class="total">
-                            € ${item.inCart * item.price},00
-                        </td>
-                        <td class="remove dph" data-id="${item.id}">
-                            <i class="far fa-trash-alt" id="icon"></i>
-                        </td>`
-                    } else {productContainer.innerHTML += `
-                        <td class="product-id">${item.id}</td>
-                        <td class="products">
-                            <span class="product-name">${item.name}</span>
-                        </td>
-                        <td class="price">€ ${item.specialPrice},00</td>
-                        <td class="quantity">
-                            <span class="amount">${item.inCart}</span>
-                        </td>
-                        <td class="total">
-                            € ${item.inCart * item.specialPrice},00
-                        </td>
-                        <td class="remove dph" data-id="${item.id}">
-                            <i class="far fa-trash-alt" id="icon"></i>
-                        </td>`
+                    itemPriceActual = item.price;
+                    if (item.specialPrice !== 0.00) {
+                        itemPriceActual = item.specialPrice;
                     }
+                    productContainer.innerHTML += `
+                    <td class="product-id">${item.id}</td>
+                    <td class="products">
+                        <span class="product-name">${item.name}</span>
+                    </td>
+                    <td class="price">€ ${itemPriceActual},00</td>
+                    <td class="quantity">
+                        <span class="amount">${item.inCart} <input type="hidden" name="${item.name}" value="${item.inCart}"/></span>
+                    </td>
+                    <td class="total">
+                        € ${item.inCart * itemPriceActual},00
+                    </td>
+                    <td class="remove dph" data-id="${item.id}">
+                        <i class="far fa-trash-alt" id="icon"></i>
+                    </td>`
                 });
 
                 //vypisuj riadok s celkovou cenou

@@ -72,9 +72,9 @@
         <fieldset>
             <legend>Adresa</legend>
                 <input type="text" name="Ulica" placeholder="* ulica" required>
-                <input type="number" name="PSČ" placeholder="* PSČ" required>
                 <input type="number" name="Číslo domu" placeholder="* číslo domu" required>
                 <input type="text" name="Mesto" placeholder="* mesto/obec" required>
+                <input type="number" name="PSČ" placeholder="* PSČ" required>
         </fieldset>
         <fieldset class="final-form">
             <legend>Objednané produkty</legend>
@@ -92,8 +92,8 @@
 
         </fieldset>
 
-        <button>potvrdiť objednávku</button>
-        <button>Zrušiť objednávku</button>
+        <button type="submit">potvrdiť objednávku</button>
+        <button type="button">Zrušiť objednávku</button>
     </form>
 
 <!------------------------------------------------------------------------------------------------------------>
@@ -145,7 +145,10 @@
 
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="eshop-form.js"></script>
+    <script src="eshop-2.js"></script>
 </body>
 
 </html>
+
+
+po vypisani froduktv, ked dam filter, klikom na element <a> malo bz toyobraiy, vyfiltrovat len produkty, ktore maju v eshop.json category> women, ale ano vykresli spravne iba 1 a potom yase vsetky, akokebz uploadol opatovne z divu do ktoreho na zaciatku appendujem vsetky prdukty z jasonu, chapem , ze to je staticky div v html subore, ale neviem, to spravne zapisat v jquery, aj dam hide-nem ten povodz, kde je vsetko, ale aj tak to prekresli..
