@@ -5,7 +5,6 @@ $(document).ready(function() { //POUZI LEN TOTO
    //VZDY PRED NACITANIM MA BYT KOSIK PRAZDNY
     $.get('eshop.json', function(products) { //TU DAVAS POZIADAVKU NA TAHANIE DAT Z DATABAZY eshop.json
                 
-            $('#good').empty(); 
             //$('#woman').empty(); 
             let newProd;
             for (let prod of products) {  //CYKLUS NA VYPISANIE VSETKYCH PRODUKTOV, na stranke produkty a domov
@@ -15,8 +14,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     newProd = `
                     <div  class="goods">
                             <div class="tool-box">
-                                <img src="${prod.image}" alt="product_1">
-                                <a href="produkt.html" id=""></a>
+                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -32,8 +30,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                         newProd = `
                         <div  class="goods">
                             <div class="tool-box">
-                                <img src="${prod.image}" alt="product_1">
-                                <a href="produkt.html" id=""></a>
+                                <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>   
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -86,6 +83,55 @@ $(document).ready(function() { //POUZI LEN TOTO
                 $('#woman').hide();
             }); 
 
+            // PRODUKT, na stranke produkt a domov - zatial skusam..
+            
+            $(".tool-box a").on("click",function(){
+                //$('#details').empty(); 
+                let detailProd;
+                
+                let detail = $(this).attr('data-id'); //tento zapis ???
+                console.log(detail); 
+                for (let prod of products) {
+                        if(detail === prod.id ){
+                            if (prod.specialPrice === 0.00) {
+                                detailProd = `
+                                <div  class="goods">
+                                        <div class="tool-box">
+                                            <img src="${prod.image}" alt="product_1">
+                                        </div>
+                                        <div class="description">
+                                            <p>${prod.name}</p>
+                                            <div class="values">
+                                                <h4>€ ${prod.price.toFixed(2)}</h4>
+                                            </div>
+                                        </div>
+                                    <div class="cart add-cart">
+                                        <a>do košíka</a> 
+                                    </div>
+                                </div>`
+                            } else {
+                                    detailProd = `
+                                    <div  class="goods">
+                                        <div class="tool-box">
+                                            <img src="${prod.image}" alt="product_1">
+                                        </div>
+                                        <div class="description">
+                                            <p>${prod.name}</p>
+                                            <div class="values">
+                                                <h4>€ ${prod.specialPrice.toFixed(2)}</h4>
+                                                <span><del>€ ${prod.price.toFixed(2)}</del></span>
+                                            </div>
+                                        </div>
+                                        <div class="cart add-cart">
+                                            <a>do košíka</a> 
+                                        </div>
+                                    </div>`;   
+                            }
+                        }      
+                }
+                $('#details').append(detailProd); 
+            });
+
             //VYHLADAVANIE: zobrazi iba produkty, podľa názvu, ktorý zadám do input a klik na lupu...
             $("#myBtn").on("click",function(){
                 let str = $("#myInput").val().toLowerCase();
@@ -106,7 +152,7 @@ $(document).ready(function() { //POUZI LEN TOTO
         //VYKRESLENIE jednemu produktu do stranky produkt.html
 
         let carts = document.querySelectorAll('.add-cart');//pomocou tejto metody som zobral vsetky elementy kde sa trieda .add-cart nachádza a je zadefinovana v premennej "carts"
-
+        
         for (let i=0; i < carts.length; i++) {              //pre-iteruje vsetky produkty na stranke
             carts[i].addEventListener('click', () => {      //prida udalost - "click"
                 console.log('pridat do kosika');
@@ -153,7 +199,7 @@ $(document).ready(function() { //POUZI LEN TOTO
             
             // tutorial part 3/5 11:00 tuto cast nejdem popisovat musim si to znovu pozriet (ja si to este dostudujem a napisem lepsie poznamky k obhajobe)
             if(cartItems !== null) {
-                if(cartItems[product.id] === undefined)
+                if(cartItems[product.id] === undefined) 
                 cartItems = {
                     //tie tri bodky = tutorial part 3/5 16:50 cca
                     // v tejto casti ide o pripocitavanie produktu v localstorage
@@ -161,7 +207,6 @@ $(document).ready(function() { //POUZI LEN TOTO
                     [product.id]: product 
                 }
                 cartItems[product.id].inCart += 1;
-            } else {
                 product.inCart = 1; 
                 cartItems = {
                     [product.id] : product
@@ -170,6 +215,7 @@ $(document).ready(function() { //POUZI LEN TOTO
 
             localStorage.setItem('productsInCart', JSON.stringify(cartItems)) //vlozenie produktu do local-storage (key,value)
         }
+
         // funkcia na vypocet celkovej sumy
         function totalCost(product) {
             console.log('cena produktu je', product.price);
