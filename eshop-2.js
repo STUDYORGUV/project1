@@ -17,7 +17,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     <div  class="goods">
                             <div class="tool-box">
                                 <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
-                                
+                               
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -175,7 +175,7 @@ $(document).ready(function() { //POUZI LEN TOTO
         
         //VYKRESLENIE jednemu produktu do stranky produkt.html
 
-        let carts = document.querySelectorAll('.add-cart');//pomocou tejto metody som zobral vsetky elementy kde sa trieda .add-cart nachádza a je zadefinovana v premennej "carts"
+        let carts = document.querySelectorAll('.add-cart');
 
         for (let i=0; i < carts.length; i++) {              //pre-iteruje vsetky produkty na stranke
             carts[i].addEventListener('click', () => {      //prida udalost - "click"
@@ -221,12 +221,10 @@ $(document).ready(function() { //POUZI LEN TOTO
             cartItems = JSON.parse(cartItems);
             console.log("moje produkty v kosiku su", cartItems);
             
-            // tutorial part 3/5 11:00 tuto cast nejdem popisovat musim si to znovu pozriet (ja si to este dostudujem a napisem lepsie poznamky k obhajobe)
+            // v tejto casti ide o pripocitavanie produktu v localstorage
             if(cartItems !== null) {
                 if(cartItems[product.id] === undefined)
                 cartItems = {
-                    //tie tri bodky = tutorial part 3/5 16:50 cca
-                    // v tejto casti ide o pripocitavanie produktu v localstorage
                     ...cartItems,
                     [product.id]: product 
                 }
@@ -238,7 +236,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 }
             }
 
-            localStorage.setItem('productsInCart', JSON.stringify(cartItems)) //vlozenie produktu do local-storage (key,value)
+            localStorage.setItem('productsInCart', JSON.stringify(cartItems)) 
         }
         // funkcia na vypocet celkovej sumy
         function totalCost(product) {
@@ -246,7 +244,6 @@ $(document).ready(function() { //POUZI LEN TOTO
             let cartCost = localStorage.getItem('totalCost');
             console.log('celkova cena v kosiku', cartCost);
 
-            //tu nepopisujem myslim ze je to zrozumitelne plus hore to co sa deje hore vypisuje "console.log" (tutorail part 4/5)
 
             if (cartCost != null) {
                 cartCost = parseInt(cartCost);
@@ -264,20 +261,18 @@ $(document).ready(function() { //POUZI LEN TOTO
             }
         }
 
-        // kosik.html - nepopisujem budem to prerabat, ked som sa do toho uz pustil
-        // myslim ze tuto funkcionalitu mozme pouzit aj na stranku "zoznam produktov - pridavanie do local storage a potom do kosika," 
+       
+        
         function generateTable() { //funkcia zobrazenie kosika
-            let cartItems = localStorage.getItem('productsInCart'); //zoberie s localStorage produkty v kosiku do premennej
+            let cartItems = localStorage.getItem('productsInCart'); 
             cartItems = JSON.parse(cartItems);
             let productContainer = document.querySelector('.products');
-            // let cartCost = localStorage.getItem('totalCost'); //zobere z kosika celkovu sumu do premennej
             let totalCost = localStorage.getItem('totalCost');
 
             //vypocet DPH
             let totalCostMath = totalCost * 0.20;
             let totalCostDPH = (totalCost - totalCostMath).toFixed(2);
 
-            //console.log(cartItems);
             if ($.isEmptyObject(cartItems)) {
                 productContainer.innerHTML += `<h2>Košík je prázdny !</h2>`   
             } else if (cartItems && productContainer && totalCost) {
@@ -322,7 +317,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="dph">CELKOVÁ CENA BEZ DPH:</td>
                 <td class="dph total">€ ${totalCostDPH}</td>`
 
-                //vypisuje riadok, kde su ikonky vyorázdniť košík a objednávka
+                //vypisuje riadok, kde su ikonky vyprázdniť košík a objednávka
                 productContainer.innerHTML += `
                 <td class="dph"></td>
                 <td class="dph"></td>
@@ -331,14 +326,13 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="total dph"><a class="order" href="objednavka.html">Objednať<a></td>`
             }
             
-            // musi to ist sem, inak to po pregenerovani tabulky prestane fungovat - nebudu naviazane eventy na polozky
             $(".remove").click(function(){
                 $("td").empty("");
                 let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
                 let productNumbers = localStorage.getItem('cartNumbers');
                 console.log('pocet produktov v kosiku je' ,productNumbers);
                 let cartCost = localStorage.getItem('totalCost');                    
-                // tuna mam cenu podla ID v kosiku // takymto sposobm to mozme spravit aj vo funckii "totalCost", pred ? - je podmienka ktorej vysledok musi byt true alebo false, za ? je vzdy true a za : je false
+                // tuna mam cenu podla ID v kosiku 
                 let itemPrice = cartItems[$(this).data('id')].isSpecial ? cartItems[$(this).data('id')].specialPrice : cartItems[$(this).data('id')].price ; 
                 let numberOfItems = cartItems[$(this).data('id')].inCart; // pocet tych istych produktov
                 localStorage.setItem('totalCost', cartCost - itemPrice * numberOfItems);
@@ -369,7 +363,65 @@ $(document).ready(function() { //POUZI LEN TOTO
         }
         generateTable();
         onLoadCartNumbers();
+        // ---------------OBJEDNAVKOVY FORMULAR-----------------//
+        function generateTableForm() { //funkcia zobrazenie kosika
+            let cartItems = localStorage.getItem('productsInCart'); 
+            cartItems = JSON.parse(cartItems);
+            let productContainer = document.querySelector('.form');
+            let totalCost = localStorage.getItem('totalCost');
+
+            //vypocet DPH
+            let totalCostMath = totalCost * 0.20;
+            let totalCostDPH = (totalCost - totalCostMath).toFixed(2);
+
+            //console.log(cartItems);
+            if ($.isEmptyObject(cartItems)) {
+                productContainer.innerHTML += `<h2>Objednávka bola zrušená</h2>`   
+            } else if (cartItems && productContainer && totalCost) {
+                $('.products').empty();                // prikaz v jquery namiesto javascriptoveho: productContainer.innerHTML = '';
+                let itemPriceActual = 0;
+                Object.values(cartItems).map(item => {
+                    // ošetrila som podmienkou, že ak je akciová cena, aby túto cenu pripočítavalo ku celkovej cene
+                    itemPriceActual = item.price;
+                    if (item.specialPrice !== 0.00) {
+                        itemPriceActual = item.specialPrice;
+                    }
+                    productContainer.innerHTML += `
+                    <td class="product-id">${item.id}</td>
+                    <td class="products">
+                        <span class="product-name">${item.name}</span>
+                    </td>
+                    <td class="quantity">
+                        <span class="amount">${item.inCart} <input type="hidden" name="${item.name}" value="${item.inCart}"/></span>
+                    </td>`
+                });
+
+                //vypisuj riadok s celkovou cenou
+                productContainer.innerHTML += `
+                <td class="total-price"></td>
+                <td class="total-price total">CELKOVÁ CENA: </td>
+                <td class="total total-price">€ ${totalCost}.00</td>`
+                
+                //vypisuje riadok s celkovou cenou s DPH
+                productContainer.innerHTML += ` 
+                <td class="dph"></td>             
+                <td class="dph">CELKOVÁ CENA BEZ DPH:</td>
+                <td class="dph total">€ ${totalCostDPH}</td>`
+
+            }
+
+            $("#removeForm").click(function() { //vymazanie celeho kosika
+                $("td").remove();
+                localStorage.removeItem('cartNumbers');
+                localStorage.removeItem('productsInCart');
+                localStorage.removeItem('totalCost'); 
+                onLoadCartNumbers();
+                generateTableForm();
+            });
+        }
+        generateTableForm(); 
+        onLoadCartNumbers();
     });
 });
 
-// ---------------OBJEDNAVKOVY FORMULAR-----------------//
+

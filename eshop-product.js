@@ -3,16 +3,17 @@
 $(document).ready(function() { //POUZI LEN TOTO
     //<a href="produkt.html?id=${prod.id}"><img src="${prod.image}" alt="product_1"></a>
 
-    //VZDY PRED NACITANIM MA BYT KOSIK PRAZDNY
+    
     $.get('eshop.json', function(products) { //TU DAVAS POZIADAVKU NA TAHANIE DAT Z DATABAZY eshop.json
 
-             // PRODUKT, na stranke produkt a domov - zatial skusam..
+             // PRODUKT, na stranke produkt a domov ???
             
             //$(".tool-box a").on("click",function(){
                 $('#details').empty(); 
                 let detailProd;
                 let i;
                 // let detail = $(this).att  r('data-id'); //tento zapis ???
+                
                 // console.log(detail); 
                 for (let prod of products) {
 
