@@ -195,8 +195,12 @@ body {
   padding-bottom: 20px;
 }
 
+.part-1 h1 {
+  font-size: 25px;
+}
+
 .part-1 h2 {
-  font-size: 70px;
+  font-size: 40px;
   margin: 0px;
   font-weight: 400;
   line-height: 1.0;
@@ -366,6 +370,161 @@ fieldset input {
           justify-content: center;
 }
 
+.detail-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
+}
+
+.detail-box .detail-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f5f4f4;
+  padding: 10px;
+  border: 2px solid  lightgrey;
+}
+
+.detail-box .detail-product .goods {
+  border: 2px solid transparent;
+}
+
+.detail-box .detail-product .goods .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  background-color: #e7484c;
+  height: 40px;
+  border: none;
+}
+
+.detail-box .detail-product .goods .cart a {
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+}
+
+.detail-box .detail-product .goods .description p {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.detail-box .detail-product .goods .description .values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.detail-box .detail-product .goods .description .values h4 {
+  color: #e7484c;
+  font-weight: 600;
+  margin: 0px;
+  padding-right: 8px;
+}
+
+.detail-box .detail-product .goods .description .values span {
+  color: #b5aec3;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.detail-box .detail-product .goods:hover {
+  background-color: white;
+}
+
+.detail-box .detail-product .details {
+  background-color: white;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left;
+  border: 2px solid transparent;
+}
+
+.detail-box .detail-product .details h3 {
+  margin: 0px;
+  color: #e7484c;
+  font-weight: 600;
+}
+
+.detail-box .detail-product .details h5 {
+  margin-bottom: 5px;
+}
+
+.detail-box .detail-product .details .parameters {
+  margin-top: 5px;
+  color: gray;
+}
+
+.detail-box .detail-product .details .parameters p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 2px;
+}
+
+.detail-box .detail-product .details .detail {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.detail-box .detail-product .details ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+}
+
+.detail-box .detail-product .details ul li {
+  margin: 0px;
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .detail-box .detail-product {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .part-3,
 .part-5,
 .part-6 {
@@ -460,6 +619,55 @@ fieldset input {
   border: 2px solid transparent;
 }
 
+.part-3 .good-box .goods .tool-box,
+.part-5 .good-box .goods .tool-box,
+.part-6 .good-box .goods .tool-box {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 235px;
+  width: 235px;
+}
+
+.part-3 .good-box .goods .description p,
+.part-5 .good-box .goods .description p,
+.part-6 .good-box .goods .description p {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.part-3 .good-box .goods .description .values,
+.part-5 .good-box .goods .description .values,
+.part-6 .good-box .goods .description .values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.part-3 .good-box .goods .description .values h4,
+.part-5 .good-box .goods .description .values h4,
+.part-6 .good-box .goods .description .values h4 {
+  color: #e7484c;
+  font-weight: 600;
+  margin: 0px;
+  padding-right: 8px;
+}
+
+.part-3 .good-box .goods .description .values span,
+.part-5 .good-box .goods .description .values span,
+.part-6 .good-box .goods .description .values span {
+  color: #b5aec3;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 .part-3 .good-box .goods .cart,
 .part-5 .good-box .goods .cart,
 .part-6 .good-box .goods .cart {
@@ -489,53 +697,13 @@ fieldset input {
   border: none;
 }
 
-.part-3 .good-box .tool-box,
-.part-5 .good-box .tool-box,
-.part-6 .good-box .tool-box {
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 235px;
-  width: 235px;
-}
-
-.part-3 .good-box .description p,
-.part-5 .good-box .description p,
-.part-6 .good-box .description p {
+.part-3 .good-box .about-product p,
+.part-5 .good-box .about-product p,
+.part-6 .good-box .about-product p {
   color: black;
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.part-3 .good-box .description .values,
-.part-5 .good-box .description .values,
-.part-6 .good-box .description .values {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 25px;
-  font-weight: 500;
-}
-
-.part-3 .good-box .description .values h4,
-.part-5 .good-box .description .values h4,
-.part-6 .good-box .description .values h4 {
-  color: #e7484c;
-  font-weight: 600;
   margin: 0px;
-  padding-right: 8px;
-}
-
-.part-3 .good-box .description .values span,
-.part-5 .good-box .description .values span,
-.part-6 .good-box .description .values span {
-  color: #b5aec3;
-  font-size: 12px;
-  margin-top: 4px;
 }
 
 .part-3 .goods:hover,
@@ -993,5 +1161,20 @@ fieldset input {
   font-size: 14px;
   color: grey;
   margin-top: 60px;
+}
+
+.contact .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact .info .fas {
+  color: #e7484c;
+  font-size: 30px;
+}
+
+.contact .info p {
+  text-transform: lowercse;
 }
 /*# sourceMappingURL=eshop.css.map */

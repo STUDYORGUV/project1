@@ -17,6 +17,7 @@ $(document).ready(function() { //POUZI LEN TOTO
                     <div  class="goods">
                             <div class="tool-box">
                                 <a href="produkt.html" data-id="${prod.id}"><img src="${prod.image}" alt="product_1"></a>
+                                
                             </div>
                             <div class="description">
                                 <p>${prod.name}</p>
@@ -91,53 +92,61 @@ $(document).ready(function() { //POUZI LEN TOTO
 
 
              // PRODUKT, na stranke produkt a domov - zatial skusam..
-            
+
             $(".tool-box a").on("click",function(){
+               
                 $('#details').empty(); 
                 let detailProd;
                 let detail = $(this).attr('data-id'); //tento zapis ???
                 console.log(detail); 
                 for (let prod of products){
-                    if(detail === prod.id ){
+                    console.log(prod);
+                    
+                     if(detail === prod.id ){
                         if (prod.specialPrice === 0.00) {
                             detailProd = `
-                            <div  class="goods">
+                            <div  class="detail">  
+                                        <div class="t-box">
+                                            <img src="${prod.image}" alt="product_1">
                                         </div>
-                                    <div class="tool-box">
-                                        <img src="${prod.image}" alt="product_1">
-                                    </div>
-                                    <div class="description">
-                                        <h2>${prod.name}</h2>
-                                        <p>${prod.about}</p>
-                                        <div class="values">
-                                            <h4>€ ${prod.price.toFixed(2)}</h4>
+                                        <div class="description">
+                                            <h2>${prod.name}</h2>
+                                            <p>${prod.about}</p>
+                                            <p>Kod produktu:${prod.id}</p>
+                                            <p>Kategória: ${prod.category}</p>
+                                            <p>Veľkosť: ${prod.size}
+                                            <div class="values">
+                                                <h4>€ ${prod.price.toFixed(2)}</h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                    </div>
-                                <div class="cart add-cart">
-                                    <a>do košíka</a> 
-                                </div>
-                            </div>`
-                            $('#details').append(detailProd); 
-                        } else {
-                            detailProd = `
-                            <div  class="goods">
-                                    <div class="tool-box">
-                                        <img src="${prod.image}" alt="product_1">
-                                    </div>
-                                    <div class="description">
-                                    <h1>${prod.name}</h1>
-                                        <p>${prod.about}</p>
-                                        <div class="values">
-                                            <h4>€ ${prod.specialPrice.toFixed(2)}</h4>
-                                            <span><del>€ ${prod.price.toFixed(2)}</del></span>
-                                        </div>
-                                    </div>
                                     <div class="cart add-cart">
-                                        <a>do košíka</a> 
+                                        <a href="#">do košíka</a> 
                                     </div>
-                                </div>`;      
-                                $('#details').append(detailProd);     
+                                </div>`
+                                $('#details').append(detailProd); 
+                            } else {
+                                    detailProd = `
+                                    <div  class="detail">
+                                        <div class="tool-box">
+                                            <img src="${prod.image}" alt="product_1">
+                                        </div>
+                                        <div class="description">
+                                        <h1>${prod.name}</h1>
+                                            <p>${prod.about}</p>
+                                            <p>Kod produktu: ${prod.id}</p>
+                                            <p>Kategória: ${prod.category}</p>
+
+                                            <div class="values">
+                                                <h4>€ ${prod.specialPrice.toFixed(2)}</h4>
+                                                <span><del>€ ${prod.price.toFixed(2)}</del></span>
+                                            </div>
+                                        </div>
+                                        <div class="cart add-cart">
+                                            <a href="#">do košíka</a> 
+                                        </div>
+                                        
+                                    </div>`;  
+                            $('#details').append(detailProd);    
                         }     
                     }           
                 }
@@ -187,7 +196,7 @@ $(document).ready(function() { //POUZI LEN TOTO
             }
         }
 
-        function cartNumbers(product) {        //funckia pridanie do kosika pocet produktov ich hodnota do local storage key=cartNumbers, value = pocet produktov
+        function cartNumbers(product) {        //funkcia pridanie do kosika pocet produktov ich hodnota do local storage key=cartNumbers, value = pocet produktov
             console.log('kliknuty produkt je:', product);
             
             let productNumbers = localStorage.getItem('cartNumbers'); // nacitanie hodnoty v localstorage (value)
@@ -322,7 +331,6 @@ $(document).ready(function() { //POUZI LEN TOTO
                 <td class="total dph"><a class="order" href="objednavka.html">Objednať<a></td>`
             }
             
-
             // musi to ist sem, inak to po pregenerovani tabulky prestane fungovat - nebudu naviazane eventy na polozky
             $(".remove").click(function(){
                 $("td").empty("");

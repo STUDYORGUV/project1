@@ -126,19 +126,22 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: black;
-    & p {
+    p {
         text-transform: uppercase;
         font-size: 14px;
         font-weight: 500;
         padding-bottom: 20px;
     }
-    & h2 {
-        font-size: 70px;
+    h1{
+        font-size:25px;
+    }
+    h2 {
+        font-size: 40px;
         margin: 0px;
         font-weight: 400;
         line-height: 1.0;
     }
-    & a {
+    a {
         text-decoration: none;
         text-transform: uppercase;
         color: white;
@@ -186,6 +189,7 @@ body {
             padding: 10px 40px;
         }
     }
+    
     .accessories {
         background-image: url("../img/banner_2.jpg");
         margin: 0 30px;
@@ -334,8 +338,120 @@ fieldset input {
    justify-content: center;
 }
 
-
 // ---------------------OBJEDNAVKOVY FORMULAR--------------------
+
+
+// ---------------------DETAIL PRODUKTU--------------------------
+.detail-box { 
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    .detail-product{
+        display: flex;
+        justify-content: center;
+        background-color: rgb(245, 244, 244);
+        padding:10px;
+        border: 2px solid  lightgrey;
+        .goods{
+            border:2px solid transparent;
+            .cart {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                visibility:hidden;
+                background-color: rgb(231, 72, 76);
+                height: 40px;
+                border:none;
+                & a {
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    border:none;
+                }
+            }
+            .description {
+                p {
+                    color: black;
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                & .values {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 25px;
+                    font-weight: 400;
+                    h4 {
+                        color: rgb(231, 72, 76);
+                        font-weight: 600;
+                        margin: 0px;
+                        padding-right: 8px;
+                    }
+                    span {
+                        color: rgb(181, 174, 195);
+                        font-size: 12px;
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+        .goods:hover{
+            background-color: white;
+        }
+        .details {
+            background-color: white;
+            padding:10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+            border:2px solid transparent;
+           
+            h3 {
+                margin: 0px;
+                color: rgb(231, 72, 76);
+                //font-size: 14px;
+                font-weight: 600;
+            }
+            h5{
+                margin-bottom:5px;
+            }
+            .parameters {
+                margin-top:5px;
+                color:gray;
+                p { 
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin:2px;
+                }
+            }
+            .detail{
+                margin:0px;
+                display:flex;
+                justify-content: flex-start;
+            }
+            ul{
+                list-style-type:none;
+                display:flex;
+                padding:0px;
+                margin:0px;
+            li{
+                margin:0px;  
+                list-style-type:none;
+            }
+        }
+        }    
+    }
+    @media only screen and (max-width: 1300px) {
+        .detail-product{
+           flex-wrap:wrap;  
+        }
+    }
+}
+// ---------------------DETAIL PRODUKTU--------------------------
+
 
 .part-3,
 .part-5,
@@ -343,7 +459,6 @@ fieldset input {
     display: flex;
     flex-direction: column;
     align-items: center;
-   
     h1 {
         margin: 20px 0 20px 0; //pridal som margin-top: 20px;
         padding: 0px;
@@ -375,7 +490,6 @@ fieldset input {
             }
         }
     }
-    
     .good-box {
         display: flex;
         flex-wrap:wrap;
@@ -388,6 +502,38 @@ fieldset input {
             text-align: center;
             //height: 377px;
             border:2px solid transparent;
+            .tool-box {
+                position: relative;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 235px;
+                width: 235px;
+            }
+            .description {
+                p {
+                    color: black;
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                & .values {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 25px;
+                    font-weight: 400;
+                    h4 {
+                        color: rgb(231, 72, 76);
+                        font-weight: 600;
+                        margin: 0px;
+                        padding-right: 8px;
+                    }
+                    span {
+                        color: rgb(181, 174, 195);
+                        font-size: 12px;
+                        margin-top: 4px;
+                    }
+                }
+            }
             .cart {
                 display: flex;
                 justify-content: center;
@@ -406,40 +552,16 @@ fieldset input {
                 }
             }
         }
-        .tool-box {
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 235px;
-            width: 235px;
-        }
-        .description {
+        
+        .about-product {
             p {
                 color: black;
                 font-size: 14px;
                 font-weight: 500;
-                margin-bottom: 10px;
+                margin:0px;
             }
-            .values {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 25px;
-                font-weight: 500;
-                h4 {
-                    color: rgb(231, 72, 76);
-                    font-weight: 600;
-                    margin: 0px;
-                    padding-right: 8px;
-                }
-                span {
-                    color: rgb(181, 174, 195);
-                    font-size: 12px;
-                    margin-top: 4px;
-                }
-            }
+           
         }
-      
-      
     }
     .goods:hover {
         cursor: pointer;
@@ -449,7 +571,7 @@ fieldset input {
             visibility: visible;
         }
     }
-    .good-box::after { //posunie poslednú položku toparu pri vykreslení doľava(na začiatok, aby nesotala medzi tovarom medzera)
+    .good-box::after { //posunie poslednú položku toparu pri vykreslení doľava(na začiatok, aby neostala medzi tovarom medzera)
         content:"";
         flex:0 1 47.7%; 
     }
@@ -748,8 +870,10 @@ fieldset input {
             }
         }
         #navbar-5 {
+            
             display: flex;
             justify-content: flex-end;
+            
             & li {
                 padding-left: 35px;
                 color: rgb(81, 84, 95);
@@ -773,3 +897,25 @@ fieldset input {
         margin-top: 60px;
     }
 }
+//---------------------------KONTAKTY---------------------------
+.contact{
+    .info{
+        display: flex;
+      
+        .fas {
+            //margin-bottom:0px;
+           
+            color:rgb(231, 72, 76);
+            font-size:30px;
+        }
+        p{
+            text-transform:lowercse;
+            .middle{
+                //padding-bottom:10px;
+            }
+        }
+
+    }
+    
+}
+//---------------------------KONTAKTY---------------------------
